@@ -1,0 +1,134 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0c0c0c;
+  color: white;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+h1, h2 {
+  color: #ffcc00;
+  font-size: 26px;
+  margin-top: 15px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+.highlight {
+  color: orange;
+  font-weight: bold;
+}
+
+p {
+  font-size: 16px;
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn {
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.whatsapp {
+  background-color: #0078ff;
+  color: white;
+}
+
+.mercado-pago {
+  background-color: #009ee3;
+  color: white;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.image {
+  width: 50%;
+  border-radius: 5px;
+}
+
+.info-box {
+  background: #161616;
+  padding: 20px;
+  border-radius: 10px;
+  flex: 1;
+}
+
+.benefits-box, .faq-box, .how-it-works {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.step {
+  background: #c4913f;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.arrow {
+  font-size: 24px;
+  color: white;
+  align-self: center;
+}
+
+/* Estilos FAQ */
+.faq-item {
+  background: #222;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.faq-item p {
+  margin: 5px 0;
+  color: white;
+}

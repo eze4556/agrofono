@@ -1,0 +1,62 @@
+
+
+
+
+.div1{
+
+background: #0e1c42; /* Azul oscuro */}
+
+
+
+
+.servicios-container {
+  background: #0e1c42; /* Azul oscuro */
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  margin: auto;
+}
+
+h2 {
+  color: #fcca3f; /* Amarillo */
+  font-weight: bold;
+}
+
+.servicio {
+  background: #12214a; /* Azul intermedio */
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+h3 {
+  color: #49a4ff; /* Azul claro */
+  font-weight: bold;
+  font-size: 16px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  text-align: left;
+  margin: 5px 0;
+}
+
+.btn {
+  background: #2466ea; /* Azul vibrante */
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #1c4eb1; /* Azul más oscuro */
+}

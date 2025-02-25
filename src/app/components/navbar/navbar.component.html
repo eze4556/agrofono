@@ -1,0 +1,33 @@
+<nav class="bg-gray-900 text-yellow-400 py-4 px-6">
+  <div class="container mx-auto flex justify-between items-center">
+    <!-- Logo -->
+    <a href="#" class="text-2xl font-bold">LOGO</a>
+
+    <!-- Menú para escritorio -->
+    <ul class="hidden md:flex space-x-6">
+      <li><a href="#" class="hover:text-yellow-300">Home</a></li>
+<li><a [routerLink]="['/asesoria']" class="hover:text-yellow-300">Asesoría al Cliente</a></li>
+      <li><a [routerLink]="['/suscripcionesTecnicas']" class="hover:text-yellow-300">Suscripciones Técnicas</a></li>
+      <li><a [routerLink]="['/nosotros']" class="hover:text-yellow-300">Sobre Nosotros</a></li>
+      <li><a [routerLink]="['/login']"class="hover:text-yellow-300">Iniciar Sesión Tecnico</a></li>
+
+    </ul>
+
+    <!-- Botón para menú móvil -->
+    <button class="md:hidden text-yellow-400 focus:outline-none" (click)="toggleMenu()">
+      ☰
+    </button>
+  </div>
+
+  <!-- Menú desplegable en móvil -->
+  <div *ngIf="isMenuOpen" class="md:hidden bg-gray-800 text-yellow-400 px-6 py-3">
+    <ul class="space-y-2">
+      <li><a href="#" class="block hover:text-yellow-300">Home</a></li>
+<li><a [routerLink]="['/asesoria']" class="hover:text-yellow-300">Asesoría al Cliente</a></li>
+            <li><a [routerLink]="['/suscripcionesTecnicas']" class="hover:text-yellow-300">Suscripciones Técnicas</a></li>
+      <li><a [routerLink]="['/nosotros']" class="hover:text-yellow-300">Sobre Nosotros</a></li>
+           <li><a [routerLink]="['/login']"class="hover:text-yellow-300">Iniciar Sesión Tecnico</a></li>
+
+    </ul>
+  </div>
+</nav>

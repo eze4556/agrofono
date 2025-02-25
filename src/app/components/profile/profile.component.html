@@ -1,0 +1,23 @@
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-b from-black to-gray-900 p-6">
+  <div class="w-full max-w-xs text-center">
+
+    <!-- Título -->
+    <h2 class="text-yellow-400 text-xl font-bold mb-6">Mi perfil</h2>
+
+    <!-- Botones -->
+    <div class="space-y-4">
+      <button (click)="handleAction('consultas')" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+        Mis consultas
+      </button>
+      <button (click)="handleAction('suscripciones')" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+        Suscripciones
+      </button>
+      <button (click)="handleAction('configurar')" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+        Configurar cuenta
+      </button>
+      <button (click)="handleAction('cerrar')" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-red-700 transition">
+        Cerrar Sesión
+      </button>
+    </div>
+  </div>
+</div>
