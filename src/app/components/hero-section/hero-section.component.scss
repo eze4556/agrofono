@@ -1,5 +1,63 @@
-section {
+// Hero Section Styles
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
+  background: url('../../../assets/el-campo-una-vision-de-futuro_wide.webp') center / cover no-repeat;
+  color: white;
+  padding: 1.5rem;
+}
+
+
+.hero-content {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  max-width: 24rem;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #EDDC87, #AC722D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.hero-buttons {
+  margin-top: 1rem;
+  margin-bottom: 10px;
+  width: 100%;
+  .hero-button {
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #1D4ED8;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #1E40AF;
+    }
+
+    .button-icon {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+@mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;

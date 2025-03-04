@@ -1,17 +1,22 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from "../navbar/navbar.component";
-import { FooterComponent } from "../footer/footer.component";
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-asesoria',
   standalone: true,
-  imports: [NavbarComponent, FooterComponent,CommonModule],
+  imports: [CommonModule],
   templateUrl: './asesoria.component.html',
   styleUrl: './asesoria.component.scss'
 })
 export class AsesoriaComponent {
+
+    constructor(private router: Router) {}
+      // Navegar entre vistas
+      navigateTo(route: string): void {
+        this.router.navigate([`/${route}`]);
+      }
 
 faqOpen: { [key: number]: boolean } = {};
 

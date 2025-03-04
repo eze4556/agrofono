@@ -1,0 +1,19 @@
+.menu-container {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+
+  button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #EDDC87; /* Color amarillo en hover */
+    }
+  }
+}

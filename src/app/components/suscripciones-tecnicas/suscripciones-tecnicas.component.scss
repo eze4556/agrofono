@@ -1,13 +1,24 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #0c0c0c;
-  color: white;
+.background {
+  background: linear-gradient(to bottom, #101010, #061A38);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
+  text-align: center; /* Asegura que el texto dentro esté centrado */
 }
 
-.container {
-  max-width: 1200px;
+.container.servicios-container {
+  // background: rgba(14, 28, 66, 0.9);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 800px;
   margin: auto;
+  display: flex;
+  flex-direction: column; /* Para mantener las secciones en columna */
+  align-items: center; /* Centra los elementos horizontalmente */
+  text-align: center; /* Alinea el texto al centro */
 }
 
 .header {
@@ -16,19 +27,12 @@ body {
 }
 
 h1, h2 {
-  color: #ffcc00;
+  margin-bottom: 20px; /* Añade espacio debajo del título */
   font-size: 26px;
-  margin-top: 15px;
-  text-align: center;
-}
-
-h2 {
-  font-size: 22px;
-}
-
-.highlight {
-  color: orange;
   font-weight: bold;
+  background: linear-gradient(to right, #EDDC87, #AC722D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 p {
@@ -39,96 +43,241 @@ p {
 
 .buttons {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* Centra horizontalmente */
   gap: 15px;
 }
 
-.btn {
-  padding: 12px 20px;
-  font-size: 16px;
-  border-radius: 5px;
+.btn1 {
+  background: #2466ea;
+  color: white;
   border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-.whatsapp {
-  background-color: #0078ff;
-  color: white;
-}
-
-.mercado-pago {
-  background-color: #009ee3;
-  color: white;
-}
-
-.content {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  margin-top: 20px;
-}
-
-.image {
-  width: 50%;
+  padding: 12px 30px;
   border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  max-width: 300px;
+  display: flex; /* Para que la imagen y el texto queden alineados */
+  align-items: center; /* Alinea verticalmente el texto e imagen */
+  justify-content: center; /* Centra el contenido */
+  text-align: center;
+  gap: 10px; /* Espacio entre el texto y la imagen */
+  margin-top: 20px;
+  img {
+    width: 100px; /* Ajusta el tamaño del icono */
+    height: 20px;
+  }
 }
 
-.info-box {
-  background: #161616;
-  padding: 20px;
-  border-radius: 10px;
-  flex: 1;
+.btn1.mercado-pago {
+  background-color: #009ee3;
 }
 
-.benefits-box, .faq-box, .how-it-works {
-  background: #1a1a1a;
-  padding: 20px;
-  border-radius: 10px;
-  margin-top: 30px;
+.btn1.mercado-pago:hover {
+  background-color: #0041a3;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+.btn {
+  background: #2466ea;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  max-width: 300px;
+  display: flex; /* Para que la imagen y el texto queden alineados */
+  align-items: center; /* Alinea verticalmente el texto e imagen */
+  justify-content: center; /* Centra el contenido */
+  text-align: center;
+  gap: 10px; /* Espacio entre el texto y la imagen */
+  margin-top: 20px;
+  img {
+    width: 30px; /* Ajusta el tamaño del icono */
+    height: 30px;
+  }
 }
 
-ul li {
-  font-size: 16px;
-  margin-bottom: 10px;
+.btn.whatsapp {
+  background-color: #0078ff;
+}
+
+.btn.whatsapp:hover {
+  background-color: #0041a3;
+}
+
+
+.servicio {
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  text-align: center; /* Asegura que el texto esté centrado */
+}
+
+.faq-box,
+.benefits-box,
+.how-it-works {
+  text-align: center; /* Centra contenido interno */
 }
 
 .steps {
   display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.step {
-  background: #c4913f;
-  color: white;
-  padding: 15px;
-  border-radius: 5px;
-  font-size: 16px;
+  flex-direction: column; /* Asegura que los pasos estén en columna */
+  align-items: center; /* Centra los pasos horizontalmente */
 }
 
 .arrow {
+  margin: 10px 0; /* Añade espacio entre la flecha y los pasos */
+}
+
+ul, li {
+  font-size: 17px; /* Tamaño de letra aumentado */
+  color: white; /* Texto en color blanco */
+  line-height: 1.6; /* Mejora la legibilidad */
+  margin-bottom: 7px; /* Espaciado entre elementos */
+}
+
+.faq-box {
+  color: white; /* Asegura que todo el texto en esta sección sea blanco */
+}
+
+.faq-box .faq-item {
+  margin-bottom: 15px; /* Espaciado entre preguntas */
+  text-align: left; /* Alinea el texto a la izquierda */
+  border: 1px solid #2e4e74; /* Borde alrededor de cada pregunta */
+  border-radius: 8px; /* Bordes redondeados */
+  padding: 10px; /* Espaciado interno */
+  background-color: #1c2d4f; /* Fondo oscuro para las preguntas */
+  transition: background-color 0.3s ease; /* Efecto de transición */
+}
+
+.faq-box .faq-item:hover {
+  background-color: #243b5e; /* Cambia el fondo al pasar el cursor */
+}
+
+.faq-box .faq-item p {
+  margin: 5px 0; /* Espaciado entre párrafos */
+  font-size: 16px; /* Tamaño de texto */
+  color: #b8c7e0; /* Color más claro para las respuestas */
+  line-height: 1.6; /* Mejor legibilidad */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* Sombra sutil */
+  padding: 5px 10px; /* Espaciado interno */
+  border-left: 3px solid #4a90e2; /* Línea decorativa a la izquierda */
+  background: rgba(255, 255, 255, 0.05); /* Fondo translúcido */
+  border-radius: 4px; /* Bordes redondeados */
+  transition: all 0.3s ease; /* Animación suave */
+}
+
+.faq-box .faq-item p *ngIf {
+  display: block;
+}
+
+.faq-box .faq-item p:hover {
+  color: #ffffff; /* Color de texto blanco al pasar el cursor */
+  background-color: rgba(255, 255, 255, 0.1); /* Fondo más destacado */
+}
+
+
+.how-it-works {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.how-it-works h2 {
   font-size: 24px;
-  color: white;
-  align-self: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #f5da86;
 }
 
-/* Estilos FAQ */
-.faq-item {
-  background: #222;
-  padding: 15px;
-  border-radius: 5px;
-  margin-bottom: 10px;
+.steps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.step {
+  background: linear-gradient(to bottom, #EDDC87, #AC722D);
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 80%; /* Ajusta el ancho para mantener proporción */
+}
+
+.arrow {
+  font-size: 20px;
+  color: white;
+}
+
+.cta-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #0078ff;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
 }
 
-.faq-item p {
-  margin: 5px 0;
+.cta-button:hover {
+  background-color: #0041a3;
+}
+
+.cta-button span {
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+/* Estilos para la sección de suscripción */
+.subscription-section {
+  text-align: center;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px 0;
+
+}
+
+.subscription-price {
+  font-size: 18px;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Estilos para el proceso de suscripción */
+.subscription-process {
+  background: #000;
+  padding: 15px;
+  border-radius: 10px;
   color: white;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.subscription-process h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #F4A261;
+}
+
+.subscription-process ul {
+  list-style: none;
+  padding: 0;
+}
+
+.subscription-process ul li {
+  font-size: 16px;
+  margin: 5px 0;
+  color: #fff;
 }

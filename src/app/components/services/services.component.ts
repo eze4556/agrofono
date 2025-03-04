@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-services',
@@ -9,4 +10,9 @@ import { Component } from '@angular/core';
 })
 export class ServicesComponent {
 
+  constructor(private router: Router) {}
+    // Navegar entre vistas
+    navigateTo(route: string): void {
+      this.router.navigate([`/${route}`]);
+    }
 }

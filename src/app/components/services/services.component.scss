@@ -1,16 +1,10 @@
-
-
-
-
-.div1{
-
-background: #0e1c42; /* Azul oscuro */}
-
-
-
+.div1 {
+  background: linear-gradient(to bottom, #101010, #061A38); /* Gradiente vertical de negro a azul oscuro */
+  padding: 20px;
+}
 
 .servicios-container {
-  background: #0e1c42; /* Azul oscuro */
+  // background: rgba(14, 28, 66, 0.9);
   color: white;
   padding: 20px;
   border-radius: 10px;
@@ -20,21 +14,25 @@ background: #0e1c42; /* Azul oscuro */}
 }
 
 h2 {
-  color: #fcca3f; /* Amarillo */
+  font-size: 25px;
   font-weight: bold;
+  background: linear-gradient(to right, #EDDC87, #AC722D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .servicio {
-  background: #12214a; /* Azul intermedio */
   padding: 15px;
   border-radius: 8px;
   margin-bottom: 15px;
 }
 
 h3 {
-  color: #49a4ff; /* Azul claro */
+  font-size: 20px;
   font-weight: bold;
-  font-size: 16px;
+  background: linear-gradient(to right, #EDDC87, #AC722D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 ul {
@@ -48,7 +46,7 @@ li {
 }
 
 .btn {
-  background: #2466ea; /* Azul vibrante */
+  background: #2466ea;
   color: white;
   border: none;
   padding: 8px 15px;

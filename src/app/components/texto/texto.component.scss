@@ -1,24 +1,30 @@
-.contenedor {
+.fono1 {
   background: black;
-  color: white;
   padding: 20px;
-  text-align: center;
-  border-radius: 10px;
-  max-width: 500px;
-  margin: auto;
-  margin-top:1px;
-}
 
-.fono1{
-background-color: black;
-}
+  .contenedor {
+    background: black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: auto;
+    margin-top: 1px;
 
-h2, h3 {
-  color: #e8a03e;
-  font-weight: bold;
-}
+    h2,
+    h3 {
+      font-weight: bold;
+      background: linear-gradient(to right, #EDDC87, #AC722D);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-.resaltado {
-  font-weight: bold;
-  color: #e8a03e;
+    .resaltado {
+      font-weight: bold;
+      background: linear-gradient(to right, #EDDC87, #AC722D);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
 }

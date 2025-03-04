@@ -1,66 +1,80 @@
-<div class="container">
-  <div class="header">
-    <h1><span class="highlight">Solucionamos tus problemas</span> con la tecnología agrícola</h1>
-    <p>Realizamos el diagnóstico y te brindamos asistencia técnica especializada.</p>
+<div class="background">
+  <div class="container servicios-container">
+    <div class="header">
+      <h1><span class="highlight">Mejora tu conocimiento Tecnico</span> y accede a recursos exclusivos</h1>
+      <p>Documentación detallada, tutoriales en video y asesoria especializada en un solo lugar</p>
+
+      <div class="buttons">
+        <button class="btn1 mercado-pago">Subscribirme Ahora <img src="assets/mpLogo.png" alt="Mercado Pago"></button>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="info-box servicio">
+        <h2>Subscribite</h2>
+        <ul>
+          <li><strong>1.</strong> Accede a documentación y tutoriales exclusivos.</li>
+          <li><strong>2.</strong> Mejora tu conocimiento y habilidades.</li>
+          <li><strong>3.</strong> Consulta con un experto cuando lo necesites.</li>
+        </ul>
+        <div class="buttons">
+          <button class="btn whatsapp">Contactar vía WhatsApp <img src="assets/wsp.png" alt="WhatsApp"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="benefits-box servicio">
+      <h2>Beneficios</h2>
+      <ul>
+        <li>✅ Acceso a manuales, planos documentación técnica y softwares.</li>
+        <li>✅ Tutoriales en video con casos reales.</li>
+        <li>✅ Consultas personalizadas con tarifa preferencial.</li>
+        <li>✅ Actualización constante.</li>
+      </ul>
+      <br/>
+      <p>Mantente al día con nuevas tecnologías y metodologías en maquinaria agrícola.</p>
+    </div>
+
+    <!-- Sección agregada -->
+    <div class="subscription-section">
+      <p class="subscription-price">Suscripción por: $XXXX ARS</p>
+
+      <div class="buttons">
+        <button class="btn1 mercado-pago">Pagar con Mercado Pago <img src="assets/mpLogo.png" alt="Mercado Pago"></button>
+      </div>
+    </div>
+
+    <div class="subscription-process">
+      <h2><span class="highlight">Proceso de Suscripción</span></h2>
+      <ul>
+        <li>1- Completa el formulario</li>
+        <li>2- Realiza el pago con Mercado Pago</li>
+        <li>3- Accede a todos los recursos exclusivos.</li>
+      </ul>
+    </div>
+
+    <div class="faq-box servicio">
+      <h2>Preguntas Frecuentes</h2>
+      <div class="faq-item" (click)="toggleFAQ(1)">
+        <p><strong>📌 ¿Cuánto tiempo demora el diagnóstico?</strong></p>
+        <p *ngIf="faqOpen[1]">El diagnóstico suele tardar entre 24 y 48 horas.</p>
+      </div>
+      <div class="faq-item" (click)="toggleFAQ(2)">
+        <p><strong>📌 ¿Puedo pagar con Mercado Pago?</strong></p>
+        <p *ngIf="faqOpen[2]">Sí, aceptamos pagos seguros a través de Mercado Pago.</p>
+      </div>
+      <div class="faq-item" (click)="toggleFAQ(3)">
+        <p><strong>📌 ¿Brindan soporte para todas las marcas?</strong></p>
+        <p *ngIf="faqOpen[3]">Sí, trabajamos con diversas marcas de computadoras agrícolas.</p>
+      </div>
+      <div class="faq-item" (click)="toggleFAQ(4)">
+        <p><strong>📌 ¿El asesoramiento tiene costo?</strong></p>
+        <p *ngIf="faqOpen[4]">El primer diagnóstico es gratuito. Luego, ofrecemos planes accesibles.</p>
+      </div>
+    </div>
 
     <div class="buttons">
-      <button class="btn whatsapp">Consultar mesa de entrada <img src="assets/whatsapp-icon.png" alt="WhatsApp"></button>
-      <button class="btn mercado-pago">Paga con Mercado Pago <img src="assets/mercado-pago-icon.png" alt="Mercado Pago"></button>
-    </div>
-  </div>
-
-  <div class="content">
-    <!-- <img src="assets/tech-image.jpg" alt="Desarrollador trabajando" class="image"> -->
-
-    <div class="info-box">
-      <p>Somos especialistas en computadoras de pulverización, mapeo y siembra, enfocados en minimizar el tiempo de inactividad y optimizar tu rendimiento.</p>
-      <h2>Realizamos:</h2>
-      <ul>
-        <li>✅ <strong>Diagnósticos rápidos y precisos</strong> - Tecnología avanzada.</li>
-        <li>✅ <strong>Menos tiempo de inactividad</strong> - Soluciones rápidas.</li>
-        <li>✅ <strong>Atención personalizada</strong> - Asesoramiento confiable.</li>
-      </ul>
-      <button class="btn whatsapp">Consulta en mesa de entrada</button>
-    </div>
-  </div>
-
-  <div class="benefits-box">
-    <h2>Beneficios</h2>
-    <ul>
-      <li>✅ <strong>Diagnósticos rápidos y precisos</strong> - Tecnología avanzada y experiencia.</li>
-      <li>✅ <strong>Menos tiempo de inactividad</strong> - Reparaciones eficientes.</li>
-      <li>✅ <strong>Atención personalizada</strong> - Adaptado a tus necesidades.</li>
-      <li>✅ <strong>Soporte experto</strong> - Respuestas confiables.</li>
-      <li>✅ <strong>Proceso simple y efectivo</strong> - Asistencia inmediata.</li>
-    </ul>
-  </div>
-
-  <div class="how-it-works">
-    <h2>¿Cómo funciona?</h2>
-    <div class="steps">
-      <div class="step">📲 <strong>Primero comunícate a WhatsApp</strong></div>
-      <div class="arrow">⬇️</div>
-      <div class="step">✍️ <strong>Describe tu problema</strong></div>
-    </div>
-  </div>
-
-  <div class="faq-box">
-    <h2>Preguntas Frecuentes</h2>
-    <div class="faq-item" (click)="toggleFAQ(1)">
-      <p><strong>📌 ¿Cuánto tiempo demora el diagnóstico?</strong></p>
-      <p *ngIf="faqOpen[1]">El diagnóstico suele tardar entre 24 y 48 horas.</p>
-    </div>
-    <div class="faq-item" (click)="toggleFAQ(2)">
-      <p><strong>📌 ¿Puedo pagar con Mercado Pago?</strong></p>
-      <p *ngIf="faqOpen[2]">Sí, aceptamos pagos seguros a través de Mercado Pago.</p>
-    </div>
-    <div class="faq-item" (click)="toggleFAQ(3)">
-      <p><strong>📌 ¿Brindan soporte para todas las marcas?</strong></p>
-      <p *ngIf="faqOpen[3]">Sí, trabajamos con diversas marcas de computadoras agrícolas.</p>
-    </div>
-    <div class="faq-item" (click)="toggleFAQ(4)">
-      <p><strong>📌 ¿El asesoramiento tiene costo?</strong></p>
-      <p *ngIf="faqOpen[4]">El primer diagnóstico es gratuito. Luego, ofrecemos planes accesibles.</p>
+      <button class="btn whatsapp">Realizar otra consulta <img src="assets/wsp.png" alt="WhatsApp"></button>
     </div>
   </div>
 </div>

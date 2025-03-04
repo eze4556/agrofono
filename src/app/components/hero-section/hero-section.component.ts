@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,4 +12,10 @@ import { CommonModule } from '@angular/common';
 })
 export class HeroSectionComponent {
 
+
+    constructor(private router: Router) {}
+      // Navegar entre vistas
+      navigateTo(route: string): void {
+        this.router.navigate([`/${route}`]);
+      }
 }

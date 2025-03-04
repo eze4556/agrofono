@@ -11,22 +11,21 @@
       📞 <a href="https://wa.me/3412774887" class="text-green-400">+54 341 277 4887</a>
     </p>
 
-    <!-- Menú -->
-    <div class="mt-4 flex justify-center gap-6 text-sm">
-      <a href="#" class="hover:text-yellow-400">Home</a>
-      <a href="#" class="hover:text-yellow-400">Asesoría al cliente</a>
-      <a href="#" class="hover:text-yellow-400">Suscripción técnica</a>
-      <a href="#" class="hover:text-yellow-400">Login técnico</a>
-      <a href="#" class="hover:text-yellow-400">Sobre nosotros</a>
-    </div>
+<!-- Menú -->
+<div class="menu-container">
+  <button (click)="navigateTo('home')">Home</button>
+  <button (click)="navigateTo('asesoria')">Asesoría al cliente</button>
+  <button (click)="navigateTo('suscripcionesTecnicas')">Suscripción técnica</button>
+  <button (click)="navigateTo('login')">Login técnico</button>
+  <button (click)="navigateTo('nosotros')">Sobre nosotros</button>
+</div>
+
 
     <!-- Redes Sociales -->
     <div class="mt-4 flex justify-center gap-4 text-lg">
       <a href="#" class="hover:text-gray-400"><i class="fab fa-facebook"></i></a>
       <a href="#" class="hover:text-gray-400"><i class="fab fa-instagram"></i></a>
       <a href="#" class="hover:text-gray-400"><i class="fab fa-x-twitter"></i></a>
-      <a href="#" class="hover:text-gray-400"><i class="fab fa-tiktok"></i></a>
-      <a href="#" class="hover:text-gray-400"><i class="fab fa-youtube"></i></a>
     </div>
 
     <!-- Email -->
