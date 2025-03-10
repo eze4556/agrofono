@@ -11,28 +11,20 @@
 
       <!-- DNI -->
       <div class="input-group">
-        <label for="dni" class="label">Documento DNI</label>
-        <input id="dni" type="text" formControlName="dni" class="input-field">
+        <label for="dni" class="label">Documento - DNI</label>
+        <input id="dni" type="text" formControlName="dni" class="input-field" />
       </div>
 
-      <!-- Contraseña -->
-      <div class="input-group">
-        <label for="password" class="label">Contraseña</label>
-        <input id="password" type="password" formControlName="password" class="input-field">
-      </div>
-
-      <!-- Recuperar contraseña -->
-      <div class="forgot-password">
-        <a href="#">Recuperar contraseña</a>
-      </div>
+      <!-- Mensaje de error -->
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
 
       <!-- Botón de ingreso -->
-      <button type="submit" class="btn-login">Ingresar</button>
+      <button type="submit" class="btn-login" [disabled]="loginForm.invalid">Ingresar</button>
 
       <!-- Crear cuenta -->
       <div class="register-link">
         ¿Aún no tenés cuenta?
-        <a href="#">Crea tu cuenta</a>
+        <a [routerLink]="['/suscripcionesTecnicas']">Crea tu cuenta</a>
       </div>
     </form>
   </div>

@@ -6,6 +6,9 @@ import { SuscripcionesTecnicasComponent } from "./components/suscripciones-tecni
 import { AboutUsComponent } from "./components/about-us/about-us.component";
 import { LoginPage } from "./pages/login/login.page";
 import { ProfileComponent } from "./components/profile/profile.component";
+import { SuscripcionComponent } from "./components/suscripcion/suscripcion.component";
+import { ConsultasComponent } from "./components/consultas/consultas.component";
+
 
 
 
@@ -16,6 +19,8 @@ export const routes: Routes = [
   { path: "nosotros", component: AboutUsComponent },
   { path: "login", component: LoginPage },
   { path: "profile", component: ProfileComponent },
+  { path: "suscripcion", component: SuscripcionComponent },
+  { path: "consulta", component: ConsultasComponent },
 
   { path: "", redirectTo: "home", pathMatch: "full" },
 ];
