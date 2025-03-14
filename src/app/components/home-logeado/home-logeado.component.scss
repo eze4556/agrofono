@@ -1,0 +1,74 @@
+.div1 {
+  background: linear-gradient(to bottom, #101010, #061a38);
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.servicios-container {
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 600px;
+  margin: auto;
+}
+
+h2 {
+  font-size: 25px;
+  font-weight: bold;
+  background: linear-gradient(to right, #eddc87, #ac722d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 16px;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.btn1 {
+  background: #2466ea;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 10px auto;
+  transition: background 0.3s;
+  text-align: left;
+}
+
+.btn1:hover {
+  background: #1c4eb1;
+}
+
+.btn-icon {
+  min-width: 80px; /* Define un ancho mínimo para la imagen */
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  width: 130px;
+  height: auto;
+}
+
+span {
+  flex-grow: 1; /* Ocupa el espacio restante */
+  text-align: left;
+}

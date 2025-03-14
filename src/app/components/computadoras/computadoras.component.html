@@ -1,0 +1,19 @@
+<div class="div1">
+  <div class="servicios-container">
+    <h2>Modelos de Computadoras ARAG</h2>
+    <div class="buttons">
+      <div
+        *ngFor="let computadora of computadoras"
+        class="btn1"
+      >
+        <div class="btn-icon">
+          <img
+            [src]="computadora.imagen || 'assets/placeholder-image.png'"
+            alt="{{ computadora.nombre }}"
+          />
+        </div>
+        <span>{{ computadora.nombre }}</span>
+      </div>
+    </div>
+  </div>
+</div>

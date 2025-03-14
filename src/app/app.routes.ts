@@ -8,6 +8,9 @@ import { LoginPage } from "./pages/login/login.page";
 import { ProfileComponent } from "./components/profile/profile.component";
 import { SuscripcionComponent } from "./components/suscripcion/suscripcion.component";
 import { ConsultasComponent } from "./components/consultas/consultas.component";
+import { HomeLogeadoComponent } from "./components/home-logeado/home-logeado.component";
+import { ConsultasTecnicosComponent } from "./components/consultas-tecnicos/consultas-tecnicos.component";
+import { ComputadorasComponent } from "./components/computadoras/computadoras.component";
 
 
 
@@ -21,7 +24,9 @@ export const routes: Routes = [
   { path: "profile", component: ProfileComponent },
   { path: "suscripcion", component: SuscripcionComponent },
   { path: "consulta", component: ConsultasComponent },
-
+  { path: "home-tecnico", component: HomeLogeadoComponent },
+  { path: "consulta-tenico", component: ConsultasTecnicosComponent },
+  { path: "computadoras", component: ComputadorasComponent },
   { path: "", redirectTo: "home", pathMatch: "full" },
 ];
 export const AppRoutingModule = RouterModule.forRoot(routes);
