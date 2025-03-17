@@ -1,0 +1,67 @@
+<div class="div1">
+  <div class="servicios-container">
+
+    <!-- Main Content -->
+  <div class="main-content">
+    <h2>{{ computadora?.nombre }}</h2>
+
+      <!-- Botones horizontales para secciones -->
+      <div class="section-buttons">
+        <button class="btn1" (click)="loadArchivos('manuales')">
+          <img src="assets/carpet.png" alt="Carpeta" class="icon"> Manuales
+        </button>
+        <button class="btn1" (click)="loadArchivos('planos')">
+          <img src="assets/carpet.png" alt="Carpeta" class="icon"> Planos
+        </button>
+        <button class="btn1" (click)="loadArchivos('videos')">
+          <img src="assets/carpet.png" alt="Carpeta" class="icon"> Videos
+        </button>
+        <button class="btn1" (click)="loadArchivos('software')">
+          <img src="assets/carpet.png" alt="Carpeta" class="icon"> Software
+        </button>
+      </div>
+
+      <div class="archivos-list">
+        <h3>{{ currentSeccion | titlecase }}</h3>
+        <div *ngIf="archivos.length === 0">No hay archivos disponibles.</div>
+        <div class="archivos-container">
+          <button class="archivo-item" *ngFor="let archivo of archivos" (click)="viewArchivo(archivo.url)">
+            <img [src]="getFileIcon(archivo.url)" alt="Icono del archivo" class="file-icon">
+            <span class="archivo-text">{{ archivo.nombre || archivo.id || 'Archivo sin nombre' }}</span>
+          </button>
+        </div>
+
+
+
+      </div>
+
+
+      <div class="content-container">
+        <!-- Mostrar PDF -->
+        <app-pdf-viewer *ngIf="selectedPdf" [pdfSrc]="selectedPdf"></app-pdf-viewer>
+
+        <!-- Mostrar DOCX -->
+        <app-docx-viewer *ngIf="selectedDocx" [docxSrc]="selectedDocx"></app-docx-viewer>
+
+        <!-- Mostrar XLSX -->
+        <app-xlsx-viewer *ngIf="selectedXlsx" [xlsxSrc]="selectedXlsx"></app-xlsx-viewer>
+
+        <!-- Mostrar videos -->
+        <div *ngIf="selectedVideo" class="video-container">
+          <iframe [src]="selectedVideo" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <!-- Mostrar enlaces de software -->
+        <div *ngIf="selectedSoftware">
+          <a [href]="selectedSoftware" target="_blank">Descargar Software</a>
+        </div>
+
+        <!-- Mostrar imágenes -->
+        <div *ngIf="selectedImage" class="image-container">
+          <img [src]="selectedImage" alt="Vista previa de la imagen" />
+        </div>
+      </div>
+
+
+  </div>
+</div>

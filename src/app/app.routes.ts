@@ -11,6 +11,7 @@ import { ConsultasComponent } from "./components/consultas/consultas.component";
 import { HomeLogeadoComponent } from "./components/home-logeado/home-logeado.component";
 import { ConsultasTecnicosComponent } from "./components/consultas-tecnicos/consultas-tecnicos.component";
 import { ComputadorasComponent } from "./components/computadoras/computadoras.component";
+import { ComputadoraDetalleComponent } from "./components/computadora-detalle/computadora-detalle.component";
 
 
 
@@ -27,6 +28,7 @@ export const routes: Routes = [
   { path: "home-tecnico", component: HomeLogeadoComponent },
   { path: "consulta-tenico", component: ConsultasTecnicosComponent },
   { path: "computadoras", component: ComputadorasComponent },
+  { path: "computadoras/:id", component: ComputadoraDetalleComponent }, // Nueva ruta
   { path: "", redirectTo: "home", pathMatch: "full" },
 ];
 export const AppRoutingModule = RouterModule.forRoot(routes);

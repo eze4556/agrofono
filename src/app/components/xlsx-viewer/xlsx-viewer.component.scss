@@ -1,0 +1,31 @@
+.xlsx-table-container {
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.xlsx-table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    word-wrap: break-word;
+    max-width: 200px; // Para evitar celdas muy largas
+  }
+
+  th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+}

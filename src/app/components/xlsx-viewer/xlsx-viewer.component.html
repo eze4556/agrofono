@@ -1,0 +1,10 @@
+<div *ngIf="tableData.length > 0; else noXlsx" class="xlsx-table-container">
+  <table class="xlsx-table">
+    <tr *ngFor="let row of tableData">
+      <td *ngFor="let cell of row">{{ cell || '' }}</td>
+    </tr>
+  </table>
+</div>
+<ng-template #noXlsx>
+  <p>No se seleccionó ningún archivo Excel.</p>
+</ng-template>

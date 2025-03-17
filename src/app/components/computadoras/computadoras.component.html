@@ -5,6 +5,7 @@
       <div
         *ngFor="let computadora of computadoras"
         class="btn1"
+        (click)="selectComputadora(computadora)"
       >
         <div class="btn-icon">
           <img
