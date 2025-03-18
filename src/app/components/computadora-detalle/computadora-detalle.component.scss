@@ -4,6 +4,23 @@
   padding: 20px;
   min-height: 100vh;
   width: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+// Bloquear descarga de imágenes
+img {
+  pointer-events: none;
+}
+
+// Intentar bloquear grabaciones de pantalla en móviles
+@media screen and (max-width: 768px) {
+  body {
+    background-color: black !important;
+    filter: brightness(0);
+  }
 }
 
 .sidebar {
@@ -243,3 +260,11 @@
 .file-icon {
   margin-right: 10px;
 }
+
+.oculto {
+  filter: blur(40px) brightness(0) contrast(0); /* Mayor difuminado y oscurecimiento */
+  transition: filter 0.2s ease-in-out;
+  pointer-events: none;
+  user-select: none; /* Evita selección de contenido */
+}
+

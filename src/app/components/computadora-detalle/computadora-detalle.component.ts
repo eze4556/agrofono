@@ -34,12 +34,93 @@ export class ComputadoraDetalleComponent {
     private sanitizer: DomSanitizer
   ) {}
 
+  private ocultarTimeout: any; // Variable para reiniciar el tiempo
+
   async ngOnInit() {
-    const computadoraId = this.route.snapshot.paramMap.get('id');
-    if (computadoraId) {
-      this.computadora = await this.firestoreService.getComputadoraById(computadoraId);
-    }
+      const computadoraId = this.route.snapshot.paramMap.get('id');
+      if (computadoraId) {
+          this.computadora = await this.firestoreService.getComputadoraById(computadoraId);
+      }
+
+      // Bloquear clic derecho (PC y móviles)
+      document.addEventListener('contextmenu', (event) => event.preventDefault());
+
+      // Bloquear descargas de imágenes en móviles
+      document.addEventListener('touchstart', (event) => {
+          if (event.target instanceof HTMLImageElement) {
+              event.preventDefault();
+          }
+      });
+
+      // Detectar teclas sospechosas (PC)
+      document.addEventListener('keydown', (event) => {
+          const teclasSospechosas = [
+              'p', 's', '3', '4', 'PrintScreen', 'Print', 'Snapshot', 'PrtSc', 'PrtScn', 'PrtScr'
+          ];
+
+          if (teclasSospechosas.includes(event.key) || event.ctrlKey || event.metaKey || event.shiftKey) {
+              event.preventDefault();
+              this.mostrarAlerta();
+              this.activarBloqueoPantalla();
+          }
+      });
+
+      // Detectar captura de pantalla indirectamente (PC y móviles)
+      document.addEventListener('visibilitychange', () => {
+          if (document.hidden) {
+              this.activarBloqueoPantalla();
+          }
+      });
+
+      // Detectar pérdida de foco de la ventana (PC y móviles)
+      window.addEventListener('blur', () => {
+          this.activarBloqueoPantalla();
+      });
+
+      // Detectar captura de pantalla en Android (solo funciona en algunas versiones)
+      if (navigator.userAgent.toLowerCase().includes('android')) {
+          document.addEventListener('visibilitychange', () => {
+              if (document.hidden) {
+                  this.activarBloqueoPantalla();
+              }
+          });
+      }
   }
+
+  // Método para mostrar una alerta visual
+  mostrarAlerta() {
+      const alerta = document.createElement('div');
+      alerta.style.position = 'fixed';
+      alerta.style.top = '20px';
+      alerta.style.left = '50%';
+      alerta.style.transform = 'translateX(-50%)';
+      alerta.style.backgroundColor = 'red';
+      alerta.style.color = 'white';
+      alerta.style.padding = '10px 20px';
+      alerta.style.borderRadius = '5px';
+      alerta.style.zIndex = '1000';
+      alerta.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.5)';
+      alerta.textContent = 'No está permitido capturar pantallas. Si continúas, serás penalizado.';
+
+      document.body.appendChild(alerta);
+      setTimeout(() => {
+          document.body.removeChild(alerta);
+      }, 5000);
+  }
+
+  // Método para activar el bloqueo de pantalla
+  activarBloqueoPantalla() {
+      const contenido = document.querySelector('.div1') as HTMLElement;
+      if (!contenido) return;
+
+      contenido.classList.add('oculto');
+
+      clearTimeout(this.ocultarTimeout);
+      this.ocultarTimeout = setTimeout(() => {
+          contenido.classList.remove('oculto');
+      }, 5000);
+  }
+
 
   async loadArchivos(seccion: string) {
     if (!this.computadora?.id) return;
@@ -145,5 +226,7 @@ export class ComputadoraDetalleComponent {
         return 'assets/icons/soft.png'; // Ícono para software
     }
   }
+
+
 
 }
