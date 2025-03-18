@@ -15,4 +15,5 @@ export class HomeLogeadoComponent {
     navigateTo(route: string): void {
       this.router.navigate([`/${route}`]);
     }
+
 }

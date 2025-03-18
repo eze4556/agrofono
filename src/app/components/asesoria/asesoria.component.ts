@@ -24,6 +24,13 @@ faqOpen: { [key: number]: boolean } = {};
     this.faqOpen[index] = !this.faqOpen[index];
   }
 
+  shareFurnitureLink(): void {
+    const numeroWhatsApp = "5493546570859";
+    const mensaje = `Hola, me gustaría obtener más información acerca de las Consultas. ¿Podría ayudarme, por favor?`;
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, "_blank");
+}
+
 }
 
 

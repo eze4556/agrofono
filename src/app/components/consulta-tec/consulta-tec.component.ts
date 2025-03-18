@@ -5,13 +5,13 @@ import { MercadoPagoService } from '../../services/mercadopago.service';
 import { FirestoreService } from '../../services/firestore.service';
 
 @Component({
-  selector: 'app-consultas',
+  selector: 'app-consulta-tec',
   standalone: true,
-  templateUrl: './consultas.component.html',
-  styleUrls: ['./consultas.component.scss'],
-  imports: [CommonModule, FormsModule]
+  imports: [CommonModule,FormsModule],
+  templateUrl: './consulta-tec.component.html',
+  styleUrl: './consulta-tec.component.scss'
 })
-export class ConsultasComponent implements OnInit {
+export class ConsultaTecComponent implements OnInit {
   formData = {
     email: '',
     nombre: '',
@@ -37,8 +37,8 @@ export class ConsultasComponent implements OnInit {
   async loadPrice() {
     try {
       const precios = await this.preciosService.getPrecios();
-      if (precios && precios.consultas !== undefined) {
-        this.price = `ARS ${precios.consultas.toFixed(2)}`; // Formato del precio
+      if (precios && precios.consultas_tec !== undefined) {
+        this.price = `ARS ${precios.consultas_tec.toFixed(2)}`; // Formato del precio
       } else {
         this.price = 'No disponible';
         console.error('No se encontró el precio de las consultas.');

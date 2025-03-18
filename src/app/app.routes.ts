@@ -12,6 +12,7 @@ import { HomeLogeadoComponent } from "./components/home-logeado/home-logeado.com
 import { ConsultasTecnicosComponent } from "./components/consultas-tecnicos/consultas-tecnicos.component";
 import { ComputadorasComponent } from "./components/computadoras/computadoras.component";
 import { ComputadoraDetalleComponent } from "./components/computadora-detalle/computadora-detalle.component";
+import { ConsultaTecComponent } from "./components/consulta-tec/consulta-tec.component";
 
 
 
@@ -25,8 +26,9 @@ export const routes: Routes = [
   { path: "profile", component: ProfileComponent },
   { path: "suscripcion", component: SuscripcionComponent },
   { path: "consulta", component: ConsultasComponent },
+  { path: "consulta-tec", component: ConsultaTecComponent },
   { path: "home-tecnico", component: HomeLogeadoComponent },
-  { path: "consulta-tenico", component: ConsultasTecnicosComponent },
+  { path: "consulta-tecnico", component: ConsultasTecnicosComponent },
   { path: "computadoras", component: ComputadorasComponent },
   { path: "computadoras/:id", component: ComputadoraDetalleComponent }, // Nueva ruta
   { path: "", redirectTo: "home", pathMatch: "full" },

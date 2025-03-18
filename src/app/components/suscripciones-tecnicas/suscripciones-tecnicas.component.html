@@ -5,7 +5,7 @@
       <p>Documentación detallada, tutoriales en video y asesoria especializada en un solo lugar</p>
 
       <div class="buttons">
-        <button class="btn1 mercado-pago">Subscribirme Ahora <img src="assets/mpLogo.png" alt="Mercado Pago"></button>
+        <button (click)="navigateTo('suscripcion')" class="btn1 mercado-pago">Subscribirme Ahora <img src="assets/mpLogo.png" alt="Mercado Pago"></button>
       </div>
     </div>
 
@@ -18,7 +18,7 @@
           <li><strong>3.</strong> Consulta con un experto cuando lo necesites.</li>
         </ul>
         <div class="buttons">
-          <button class="btn whatsapp">Contactar vía WhatsApp <img src="assets/wsp.png" alt="WhatsApp"></button>
+          <button (click)="shareFurnitureLink()" class="btn whatsapp">Contactar vía WhatsApp <img src="assets/wsp.png" alt="WhatsApp"></button>
         </div>
       </div>
     </div>
@@ -37,10 +37,12 @@
 
     <!-- Sección agregada -->
     <div class="subscription-section">
-      <p class="subscription-price">Suscripción por: $XXXX ARS</p>
+      <p class="subscription-price">Suscripción por: {{ price }}</p>
 
       <div class="buttons">
-        <button class="btn1 mercado-pago">Pagar con Mercado Pago <img src="assets/mpLogo.png" alt="Mercado Pago"></button>
+        <button (click)="navigateTo('suscripcion')" class="btn1 mercado-pago">
+          Pagar con Mercado Pago <img src="assets/mpLogo.png" alt="Mercado Pago">
+        </button>
       </div>
     </div>
 
@@ -74,7 +76,7 @@
     </div>
 
     <div class="buttons">
-      <button class="btn whatsapp">Realizar otra consulta <img src="assets/wsp.png" alt="WhatsApp"></button>
+      <button (click)="shareFurnitureLink()" class="btn whatsapp">Realizar otra consulta <img src="assets/wsp.png" alt="WhatsApp"></button>
     </div>
   </div>
 </div>

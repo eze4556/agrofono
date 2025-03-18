@@ -5,16 +5,16 @@
       Antes de pagar, describe tu problema en la mesa de entrada y te diremos si podemos ayudarte.
     </p>
     <div class="buttons">
-      <button class="btn1">
+      <button  (click)="shareFurnitureLink()" class="btn1">
         Mesa de entrada
       </button>
     </div>
     <h3>Consultas de pago</h3>
     <div class="buttons">
-      <button class="btn1">
+      <button (click)="navigateTo('consulta-tec')" class="btn1">
         Comprar consulta para mí
       </button>
-      <button class="btn1">
+      <button (click)="navigateTo('consulta-tec')" class="btn1">
         Comprar consulta para mi cliente
       </button>
     </div>

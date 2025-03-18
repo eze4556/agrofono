@@ -7,11 +7,22 @@
 
     <!-- Menú para escritorio -->
     <ul class="navbar-menu">
-      <li><a href="#" class="navbar-link">Home</a></li>
-      <li><a [routerLink]="['/asesoria']" class="navbar-link">Asesoría al Cliente</a></li>
-      <li><a [routerLink]="['/suscripcionesTecnicas']" class="navbar-link">Suscripciones Técnicas</a></li>
-      <li><a [routerLink]="['/nosotros']" class="navbar-link">Sobre Nosotros</a></li>
-      <li><a [routerLink]="['/login']" class="navbar-link">Iniciar Sesión Técnico</a></li>
+      <!-- Opciones para usuarios no logueados -->
+      <ng-container *ngIf="!isLoggedIn; else loggedInMenu">
+        <li><a href="#" class="navbar-link">Home</a></li>
+        <li><a [routerLink]="['/asesoria']" class="navbar-link">Asesoría al Cliente</a></li>
+        <li><a [routerLink]="['/suscripcionesTecnicas']" class="navbar-link">Suscripciones Técnicas</a></li>
+        <li><a [routerLink]="['/nosotros']" class="navbar-link">Sobre Nosotros</a></li>
+        <li><a [routerLink]="['/login']" class="navbar-link">Iniciar Sesión Técnico</a></li>
+      </ng-container>
+
+      <!-- Opciones para usuarios logueados -->
+      <ng-template #loggedInMenu>
+        <li><a [routerLink]="['/profile']" class="navbar-link">Perfil</a></li>
+        <li><a [routerLink]="['/computadoras']" class="navbar-link">Computadoras</a></li>
+        <li><a [routerLink]="['/consulta-tecnico']" class="navbar-link">Consulta Técnico</a></li>
+        <li><a (click)="logout()" class="navbar-link">Cerrar Sesión</a></li>
+      </ng-template>
     </ul>
 
     <!-- Botón para menú móvil -->
@@ -23,11 +34,20 @@
   <!-- Menú desplegable en móvil -->
   <div *ngIf="isMenuOpen" class="navbar-mobile">
     <ul class="navbar-mobile-menu">
-      <li><a href="#" class="navbar-mobile-link">Home</a></li>
-      <li><a [routerLink]="['/asesoria']" class="navbar-mobile-link">Asesoría al Cliente</a></li>
-      <li><a [routerLink]="['/suscripcionesTecnicas']" class="navbar-mobile-link">Suscripciones Técnicas</a></li>
-      <li><a [routerLink]="['/nosotros']" class="navbar-mobile-link">Sobre Nosotros</a></li>
-      <li><a [routerLink]="['/login']" class="navbar-mobile-link">Iniciar Sesión Técnico</a></li>
+      <ng-container *ngIf="!isLoggedIn; else loggedInMobileMenu">
+        <li><a href="#" class="navbar-mobile-link">Home</a></li>
+        <li><a [routerLink]="['/asesoria']" class="navbar-mobile-link">Asesoría al Cliente</a></li>
+        <li><a [routerLink]="['/suscripcionesTecnicas']" class="navbar-mobile-link">Suscripciones Técnicas</a></li>
+        <li><a [routerLink]="['/nosotros']" class="navbar-mobile-link">Sobre Nosotros</a></li>
+        <li><a [routerLink]="['/login']" class="navbar-mobile-link">Iniciar Sesión Técnico</a></li>
+      </ng-container>
+      <ng-template #loggedInMobileMenu>
+        <li><a [routerLink]="['/home-tecnico']" class="navbar-mobile-link">Home</a></li>
+        <li><a [routerLink]="['/computadoras']" class="navbar-mobile-link">Computadoras</a></li>
+        <li><a [routerLink]="['/consulta-tecnico']" class="navbar-mobile-link">Consulta Técnico</a></li>
+        <li><a [routerLink]="['/profile']" class="navbar-mobile-link">Perfil</a></li>
+        <li><a (click)="logout()" class="navbar-mobile-link">Cerrar Sesión</a></li>
+      </ng-template>
     </ul>
   </div>
 </nav>

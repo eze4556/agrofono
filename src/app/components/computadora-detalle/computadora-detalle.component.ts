@@ -148,6 +148,14 @@ export class ComputadoraDetalleComponent {
     this.selectedSoftware = null;
     this.selectedImage = null; // Reinicia la selección de imágenes
 
+    if (this.currentSeccion === 'software') {
+      if (!archivoUrl.includes('youtube.com/watch')) {
+        // Redirige al usuario al enlace directamente
+        window.open(archivoUrl, '_blank');
+        return;
+      }
+    }
+
     if (archivoUrl.includes('youtube.com/watch')) {
       const videoId = archivoUrl.split('v=')[1]?.split('&')[0];
       if (videoId) {
@@ -194,6 +202,7 @@ export class ComputadoraDetalleComponent {
     }
   }
 
+
   getFileIcon(url: string): string {
     if (url.includes('youtube.com/watch')) {
       return 'assets/icons/video.png'; // Ícono para videos de YouTube
@@ -226,7 +235,5 @@ export class ComputadoraDetalleComponent {
         return 'assets/icons/soft.png'; // Ícono para software
     }
   }
-
-
 
 }

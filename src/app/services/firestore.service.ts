@@ -38,8 +38,27 @@ import { ConsultaI } from '../models/consultas.model';
   providedIn: 'root',
 })
 export class FirestoreService {
+  private preciosDocId = 'VD5K0j4QwvEeuUubztak';
   constructor(private firestore: Firestore, private storage: Storage) {}
 
+
+  // 🔹 Obtener los precios del documento único
+async getPrecios(): Promise<{ consultas: number; suscripciones: number; consultas_tec: number } | null> {
+  try {
+    const preciosRef = doc(this.firestore, `precios/${this.preciosDocId}`);
+    const preciosSnap = await getDoc(preciosRef);
+
+    if (preciosSnap.exists()) {
+      return preciosSnap.data() as { consultas: number; suscripciones: number; consultas_tec: number };
+    } else {
+      console.error('El documento de precios no existe.');
+      return null;
+    }
+  } catch (error) {
+    console.error('Error obteniendo los precios:', error);
+    return null;
+  }
+}
   // Usuario
   // Eliminar un usuario
   async deleteUser(user: UserI): Promise<void> {
