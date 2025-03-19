@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FirestoreService } from '../../services/firestore.service';
 import { Computadoras } from '../../models/computadora.model';
 import { CommonModule } from '@angular/common';
@@ -14,10 +14,12 @@ import { SafeUrlPipe } from '../../services/safeUrl';
   selector: 'app-computadora-detalle',
   templateUrl: './computadora-detalle.component.html',
   styleUrls: ['./computadora-detalle.component.scss'],
-  imports: [CommonModule, FormsModule, PdfViewerComponent, DocxViewerComponent, XlsxViewerComponent, SafeUrlPipe],
+  imports: [CommonModule, FormsModule, PdfViewerComponent, DocxViewerComponent, XlsxViewerComponent],
   standalone: true,
 })
 export class ComputadoraDetalleComponent {
+  @ViewChild('videoFrame') videoFrame!: ElementRef;
+
   computadora: Computadoras | null = null;
   archivos: any[] = [];
   currentSeccion: string = '';
@@ -140,33 +142,51 @@ export class ComputadoraDetalleComponent {
       return;
     }
 
-    const extension = archivoUrl.split('.').pop()?.toLowerCase();
+    // Reinicia las variables de selección
     this.selectedPdf = null;
     this.selectedDocx = null;
     this.selectedXlsx = null;
     this.selectedVideo = null;
     this.selectedSoftware = null;
-    this.selectedImage = null; // Reinicia la selección de imágenes
+    this.selectedImage = null;
 
-    if (this.currentSeccion === 'software') {
-      if (!archivoUrl.includes('youtube.com/watch')) {
-        // Redirige al usuario al enlace directamente
-        window.open(archivoUrl, '_blank');
+    // Detectar si la URL es un video de YouTube
+    if (archivoUrl.includes('youtube.com/watch')) {
+      const videoIdMatch = archivoUrl.match(/v=([^&]+)/);
+      const videoId = videoIdMatch ? videoIdMatch[1] : null;
+
+      if (videoId) {
+        const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&controls=0&disablekb=1&fs=0&modestbranding=1&rel=0`;
+
+        setTimeout(() => {
+          this.selectedVideo = this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
+
+          // Espera a que se cargue el iframe y envía un mensaje de "play"
+          setTimeout(() => {
+            const iframe = this.videoFrame?.nativeElement;
+            if (iframe) {
+              iframe.contentWindow?.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+            }
+          }, 1000);
+        }, 100);
+
+        return; // Detener ejecución después de procesar YouTube
+      } else {
+        console.error('No se pudo extraer el ID del video de la URL:', archivoUrl);
+        alert('La URL del video no es válida.');
         return;
       }
     }
 
-    if (archivoUrl.includes('youtube.com/watch')) {
-      const videoId = archivoUrl.split('v=')[1]?.split('&')[0];
-      if (videoId) {
-        const embedUrl = `https://www.youtube.com/embed/${videoId}`;
-        this.selectedVideo = this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
-      } else {
-        console.error('No se pudo extraer el ID del video de la URL:', archivoUrl);
-        alert('La URL del video no es válida.');
-      }
+    // Si el archivo pertenece a la sección 'software' y no es un video de YouTube, abrir en nueva pestaña
+    if (this.currentSeccion === 'software') {
+      window.open(archivoUrl, '_blank');
       return;
     }
+
+    // Limpiar la URL antes de extraer la extensión
+    const archivoLimpio = archivoUrl.split('?')[0]; // Elimina parámetros de consulta
+    const extension = archivoLimpio.split('.').pop()?.toLowerCase();
 
     switch (extension) {
       case 'pdf':
@@ -194,13 +214,14 @@ export class ComputadoraDetalleComponent {
       case 'jpeg':
       case 'png':
       case 'gif':
-        this.selectedImage = archivoUrl; // Asigna la URL de la imagen
+        this.selectedImage = archivoUrl;
         break;
       default:
         console.error('Formato de archivo no compatible:', extension);
         alert('El formato de archivo no es compatible.');
     }
   }
+
 
 
   getFileIcon(url: string): string {
@@ -235,5 +256,7 @@ export class ComputadoraDetalleComponent {
         return 'assets/icons/soft.png'; // Ícono para software
     }
   }
+
+
 
 }

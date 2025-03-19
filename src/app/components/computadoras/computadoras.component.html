@@ -1,9 +1,17 @@
 <div class="div1">
   <div class="servicios-container">
     <h2>Modelos de Computadoras ARAG</h2>
+
+    <!-- Botones de filtro -->
+    <div class="filter-buttons">
+      <button class="btn1" (click)="filterComputadoras('pulverisacion')">Pulverización</button>
+      <button class="btn1" (click)="filterComputadoras('siembra')">Siembra</button>
+    </div>
+
+    <!-- Mostrar computadoras filtradas -->
     <div class="buttons">
       <div
-        *ngFor="let computadora of computadoras"
+        *ngFor="let computadora of filteredComputadoras"
         class="btn1"
         (click)="selectComputadora(computadora)"
       >

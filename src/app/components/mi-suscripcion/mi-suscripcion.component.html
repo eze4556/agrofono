@@ -1,0 +1,19 @@
+<div class="div1">
+  <div class="servicios-container" *ngIf="subscription; else noSubscription">
+    <h2>Mi Suscripción</h2>
+    <div class="servicio">
+      <h3>{{ subscription.nombre }}</h3>
+      <ul>
+        <li><strong>Precio:</strong> {{ subscription.price | currency }}</li>
+        <li><strong>Estado:</strong> {{ subscription.status === 'approved' ? 'Pagada' : subscription.status }}</li>
+        <li><strong>Email:</strong> {{ subscription.email }}</li>
+        <li><strong>Teléfono:</strong> {{ subscription.telefono }}</li>
+      </ul>
+      <!-- <button class="btn">Gestionar Suscripción</button>  -->
+    </div>
+  </div>
+
+  <ng-template #noSubscription>
+    <p style="text-align: center; color: white;">No tienes ninguna suscripción activa.</p>
+  </ng-template>
+</div>

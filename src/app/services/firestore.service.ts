@@ -222,6 +222,21 @@ async getComputadoraById(id: string): Promise<Computadoras | null> {
     })) as ConsultaI[];
   }
 
+  async getConsultasPorDni(dni: string): Promise<any[]> {
+    try {
+      const consultasSnapshot = await getDocs(
+        query(collection(this.firestore, 'consultas'), where('dni', '==', dni))
+      );
+      return consultasSnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+    } catch (error) {
+      console.error('Error obteniendo las consultas:', error);
+      throw error;
+    }
+  }
+
   async deleteConsulta(id: string): Promise<void> {
     try {
       const consultaRef = doc(this.firestore, 'consultas', id);

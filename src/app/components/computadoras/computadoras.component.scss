@@ -32,7 +32,7 @@ h2 {
   background: #2466ea;
   color: white;
   border: none;
-  padding: 12px;
+  padding: 12px 20px;
   border-radius: 5px;
   font-weight: bold;
   font-size: 16px;
@@ -41,10 +41,13 @@ h2 {
   max-width: 450px;
   display: flex;
   align-items: center;
+  justify-content: center; /* Centrar el contenido horizontalmente */
   gap: 15px;
   margin: 10px auto;
   transition: background 0.3s;
+  text-align: center; /* Centrar texto */
 }
+
 
 .btn1:hover {
   background: #1c4eb1;
@@ -64,4 +67,10 @@ img {
 span {
   flex-grow: 1;
   text-align: left;
+}
+.filter-buttons {
+  display: flex;
+  justify-content: center; /* Centrar los botones horizontalmente */
+  gap: 15px; /* Separación entre los botones */
+  margin-bottom: 20px; /* Espacio debajo de los botones */
 }

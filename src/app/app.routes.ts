@@ -13,6 +13,8 @@ import { ConsultasTecnicosComponent } from "./components/consultas-tecnicos/cons
 import { ComputadorasComponent } from "./components/computadoras/computadoras.component";
 import { ComputadoraDetalleComponent } from "./components/computadora-detalle/computadora-detalle.component";
 import { ConsultaTecComponent } from "./components/consulta-tec/consulta-tec.component";
+import { MisConsultasComponent } from "./components/mis-consultas/mis-consultas.component";
+import { MiSuscripcionComponent } from "./components/mi-suscripcion/mi-suscripcion.component";
 
 
 
@@ -27,6 +29,8 @@ export const routes: Routes = [
   { path: "suscripcion", component: SuscripcionComponent },
   { path: "consulta", component: ConsultasComponent },
   { path: "consulta-tec", component: ConsultaTecComponent },
+  { path: "mis-consultas", component: MisConsultasComponent },
+  { path: "mi-suscripcion", component: MiSuscripcionComponent },
   { path: "home-tecnico", component: HomeLogeadoComponent },
   { path: "consulta-tecnico", component: ConsultasTecnicosComponent },
   { path: "computadoras", component: ComputadorasComponent },

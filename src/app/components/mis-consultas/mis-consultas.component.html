@@ -1,0 +1,24 @@
+<div class="div1">
+  <div class="servicios-container">
+    <h2>Mis Consultas</h2>
+
+    <div *ngIf="consultas.length > 0; else noConsultas">
+      <div class="consulta-card" *ngFor="let consulta of consultas">
+        <h3>Consulta #{{ consulta.id }}</h3>
+        <ul>
+          <!-- <li><strong>Comentario:</strong> {{ consulta.comentario }}</li>  -->
+          <li><strong>DNI:</strong> {{ consulta.dni }}</li>
+          <li><strong>Email:</strong> {{ consulta.payerEmail }}</li>
+          <li><strong>Precio:</strong> {{ consulta.price | currency }}</li>
+          <li><strong>Estado:</strong> {{ consulta.status === 'completed' ? 'Pagada' : consulta.status }}</li>
+          <li><strong>Fecha de Pago:</strong> {{ consulta.paymentDate | date: 'dd/MM/yyyy' }}</li>
+
+        </ul>
+      </div>
+    </div>
+
+    <ng-template #noConsultas>
+      <p style="text-align: center; color: white;">No tienes consultas registradas.</p>
+    </ng-template>
+  </div>
+</div>

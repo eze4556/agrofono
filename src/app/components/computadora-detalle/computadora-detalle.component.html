@@ -50,10 +50,21 @@
         <!-- Mostrar XLSX -->
         <app-xlsx-viewer *ngIf="selectedXlsx" [xlsxSrc]="selectedXlsx"></app-xlsx-viewer>
 
-        <!-- Mostrar videos -->
-        <div *ngIf="selectedVideo" class="video-container">
-          <iframe [src]="selectedVideo" frameborder="0" allowfullscreen></iframe>
-        </div>
+
+<!-- Mostrar videos -->
+<div *ngIf="selectedVideo" class="video-container">
+  <iframe
+    #videoFrame
+    [src]="selectedVideo"
+    frameborder="0"
+    allow="autoplay"
+    allowfullscreen
+  ></iframe>
+
+</div>
+
+
+
 
         <!-- Mostrar enlaces de software -->
         <div *ngIf="selectedSoftware">

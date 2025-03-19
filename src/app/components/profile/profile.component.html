@@ -6,19 +6,16 @@
 
     <!-- Botones -->
     <div class="space-y-4">
-      <button (click)="navigateTo('consultas')"
+      <button (click)="navigateTo('mis-consultas')"
        class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
         Mis consultas
       </button>
-      <button (click)="navigateTo('suscripciones')"
+      <button (click)="navigateTo('mi-suscripcion')"
       class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
-        Suscripciones
+        Mi Suscripción
       </button>
-      <!-- <button (click)="navigateTo('configurar')"
-      class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
-        Configurar cuenta
-      </button> -->
-      <button (click)="navigateTo('cerrar')"
+
+      <button (click)="logout()"
       class="w-full bg-blue-600 text-white py-2 rounded hover:bg-red-700 transition">
         Cerrar Sesión
       </button>
