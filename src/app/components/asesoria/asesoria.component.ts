@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -10,9 +10,29 @@ import { Router } from '@angular/router';
   templateUrl: './asesoria.component.html',
   styleUrl: './asesoria.component.scss'
 })
-export class AsesoriaComponent {
+export class AsesoriaComponent implements OnInit{
 
     constructor(private router: Router) {}
+  ngOnInit(): void {
+            // Detectar apertura de DevTools
+            setInterval(() => {
+              if (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160) {
+                alert('No intentes inspeccionar la página.');
+                window.location.href = 'https://tusitio.com/bloqueado';
+              }
+            }, 1000);
+
+                // Detectar uso de debugger
+                setInterval(() => {
+                  const antes = new Date().getTime();
+                  debugger;
+                  const despues = new Date().getTime();
+                  if (despues - antes > 200) {
+                    alert('Inspección detectada. Redirigiendo...');
+                    window.location.href = 'https://tusitio.com/bloqueado';
+                  }
+                }, 500);
+  }
       // Navegar entre vistas
       navigateTo(route: string): void {
         this.router.navigate([`/${route}`]);

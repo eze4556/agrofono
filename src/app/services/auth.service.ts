@@ -30,4 +30,14 @@ export class AuthService {
     return this.loggedIn.getValue();
   }
 
+  get currentUser(): any {
+    const user = localStorage.getItem('currentUser');
+    return user ? JSON.parse(user) : null;
+  }
+
+  get userName(): string {
+    return this.currentUser?.nombre || 'Usuario';
+  }
+
+
 }
