@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-consultas-tecnicos',
@@ -9,7 +10,17 @@ import { Router } from '@angular/router';
   styleUrl: './consultas-tecnicos.component.scss'
 })
 export class ConsultasTecnicosComponent {
-    constructor(private router: Router) {}
+    constructor(private router: Router,
+       private authService: AuthService
+    ) {}
+
+    async ngOnInit() {
+
+      // Verificar si el usuario está logeado
+      if (!this.authService.isLoggedIn) {
+        this.router.navigate(['/home']); // Redirigir si no está autenticado
+      }
+    }
       // Navegar entre vistas
       navigateTo(route: string): void {
         this.router.navigate([`/${route}`]);

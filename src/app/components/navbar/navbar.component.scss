@@ -4,24 +4,34 @@ $secondary-text: #EDDC87; // Color del texto
 $hover-text: lighten($secondary-text, 10%);
 $mobile-bg: lighten($primary-bg, 5%);
 
-// Estilos del Navbar
+// Ajustes responsivos para el navbar
 .navbar {
   background-color: $primary-bg;
   color: $secondary-text;
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 1rem;
 
   .navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
 
+    @media (max-width: 480px) {
+      flex-direction: row; // Mantener la dirección horizontal
+      align-items: center; // Centrar verticalmente
+      width: 100%; // Asegurar que ocupe todo el ancho
+    }
+  }
   .navbar-logo {
+    display: flex;
+    align-items: center;
+
     .navbar-image {
-      height: 40px;
+      height: 35px;
       width: auto;
+
+      @media (max-width: 480px) {
+        height: 30px;
+      }
     }
   }
 
@@ -30,7 +40,7 @@ $mobile-bg: lighten($primary-bg, 5%);
 
     @media (min-width: 768px) {
       display: flex;
-      gap: 1.5rem;
+      gap: 1rem;
     }
 
     .navbar-link {
@@ -42,10 +52,15 @@ $mobile-bg: lighten($primary-bg, 5%);
       &:hover {
         color: $hover-text;
       }
+
+      @media (max-width: 480px) {
+        font-size: 0.875rem;
+      }
     }
   }
 
   .navbar-toggle {
+    margin-left: auto; // Empujar el botón hacia la derecha
     font-size: 1.5rem;
     color: $secondary-text;
     background: none;
@@ -66,6 +81,18 @@ $mobile-bg: lighten($primary-bg, 5%);
     background-color: $mobile-bg;
     padding: 1rem;
     border-top: 1px solid darken($primary-bg, 10%);
+    animation: slideDown 0.3s ease;
+
+    @keyframes slideDown {
+      from {
+        max-height: 0;
+        opacity: 0;
+      }
+      to {
+        max-height: 500px;
+        opacity: 1;
+      }
+    }
 
     .navbar-mobile-menu {
       display: flex;
@@ -80,6 +107,10 @@ $mobile-bg: lighten($primary-bg, 5%);
 
         &:hover {
           color: $hover-text;
+        }
+
+        @media (max-width: 480px) {
+          font-size: 0.875rem;
         }
       }
     }

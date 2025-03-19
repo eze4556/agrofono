@@ -13,6 +13,13 @@ import { AuthService } from '../../services/auth.service';
 export class ProfileComponent {
 
   constructor(private router: Router, private authService: AuthService) {}
+
+  ngOnInit(): void {
+    // Verificar si el usuario está logeado
+    if (!this.authService.isLoggedIn) {
+      this.router.navigate(['/home']); // Redirigir si no está autenticado
+    }
+  }
     // Navegar entre vistas
     navigateTo(route: string): void {
       this.router.navigate([`/${route}`]);

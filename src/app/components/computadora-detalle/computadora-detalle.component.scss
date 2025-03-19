@@ -269,3 +269,57 @@ img {
   user-select: none; /* Evita selección de contenido */
 }
 
+// General styles for smaller screens
+@media screen and (max-width: 768px) {
+  .div1 {
+    padding: 10px;
+  }
+
+  .main-content h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .section-buttons {
+    flex-wrap: wrap; /* Permite que los botones se ajusten en múltiples filas */
+    gap: 10px;
+  }
+
+  .btn1 {
+    font-size: 14px;
+    padding: 10px;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .content-container {
+    max-width: 100%; /* Se ajusta al ancho del dispositivo */
+    padding: 15px;
+  }
+
+  .video-container iframe {
+    width: 100%;
+    height: auto; /* Ajusta automáticamente la altura */
+  }
+
+  .archivos-container {
+    gap: 10px;
+    justify-content: center; /* Centra los botones en dispositivos pequeños */
+  }
+
+  .archivo-item {
+    flex-direction: row; /* Mantén icono y texto en fila */
+    align-items: center; /* Centra verticalmente el contenido */
+    text-align: left; /* Asegura alineación izquierda del texto */
+  }
+
+  .file-icon {
+    margin-right: 10px; /* Espaciado entre el ícono y el texto */
+    width: 24px; /* Ajusta tamaño si es necesario */
+    height: 24px;
+  }
+
+  .archivo-text {
+    font-size: 12px; /* Reduce el tamaño del texto */
+  }
+}

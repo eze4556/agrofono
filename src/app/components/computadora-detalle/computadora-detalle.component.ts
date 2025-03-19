@@ -3,12 +3,13 @@ import { FirestoreService } from '../../services/firestore.service';
 import { Computadoras } from '../../models/computadora.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PdfViewerComponent } from '../pdf-viewer/pdf-viewer.component';
 import { DocxViewerComponent } from '../docx-viewer/docx-viewer.component';
 import { XlsxViewerComponent } from '../xlsx-viewer/xlsx-viewer.component';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { SafeUrlPipe } from '../../services/safeUrl';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-computadora-detalle',
@@ -33,12 +34,19 @@ export class ComputadoraDetalleComponent {
   constructor(
     private firestoreService: FirestoreService,
     private route: ActivatedRoute,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private router:Router,
+    private authService: AuthService
   ) {}
 
   private ocultarTimeout: any; // Variable para reiniciar el tiempo
 
   async ngOnInit() {
+
+    // Verificar si el usuario está logeado
+    if (!this.authService.isLoggedIn) {
+      this.router.navigate(['/home']); // Redirigir si no está autenticado
+    }
       const computadoraId = this.route.snapshot.paramMap.get('id');
       if (computadoraId) {
           this.computadora = await this.firestoreService.getComputadoraById(computadoraId);
@@ -53,6 +61,26 @@ export class ComputadoraDetalleComponent {
               event.preventDefault();
           }
       });
+
+         // Detectar apertura de DevTools
+    setInterval(() => {
+      if (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160) {
+        alert('No intentes inspeccionar la página.');
+        window.location.href = 'https://tusitio.com/bloqueado';
+      }
+    }, 1000);
+
+        // Detectar uso de debugger
+        setInterval(() => {
+          const antes = new Date().getTime();
+          debugger;
+          const despues = new Date().getTime();
+          if (despues - antes > 200) {
+            alert('Inspección detectada. Redirigiendo...');
+            window.location.href = 'https://tusitio.com/bloqueado';
+          }
+        }, 500);
+
 
       // Detectar teclas sospechosas (PC)
       document.addEventListener('keydown', (event) => {

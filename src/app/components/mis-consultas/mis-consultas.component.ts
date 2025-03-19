@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FirestoreService } from '../../services/firestore.service';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mis-consultas',
@@ -13,9 +14,15 @@ import { AuthService } from '../../services/auth.service';
 export class MisConsultasComponent implements OnInit {
   consultas: any[] = [];
 
-  constructor(private firestoreService: FirestoreService, private authService: AuthService) {}
+  constructor(private router: Router,
+    private firestoreService: FirestoreService,
+     private authService: AuthService) {}
 
   async ngOnInit() {
+      // Verificar si el usuario está logeado
+    if (!this.authService.isLoggedIn) {
+      this.router.navigate(['/home']); // Redirigir si no está autenticado
+    }
     const currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
       const userData = JSON.parse(currentUser);

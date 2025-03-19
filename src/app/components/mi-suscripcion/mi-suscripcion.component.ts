@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FirestoreService } from '../../services/firestore.service';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mi-suscripcion',
@@ -14,9 +15,15 @@ import { AuthService } from '../../services/auth.service';
 export class MiSuscripcionComponent implements OnInit {
   subscription: any = null;
 
-  constructor(private firestoreService: FirestoreService, private authService: AuthService) {}
+  constructor(private firestoreService: FirestoreService, private authService: AuthService, private router: Router,) {}
 
   async ngOnInit() {
+
+    // Verificar si el usuario está logeado
+    if (!this.authService.isLoggedIn) {
+      this.router.navigate(['/home']); // Redirigir si no está autenticado
+    }
+
     const currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
       const userData = JSON.parse(currentUser);
