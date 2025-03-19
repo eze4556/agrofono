@@ -70,17 +70,6 @@ export class ComputadoraDetalleComponent {
       }
     }, 1000);
 
-        // Detectar uso de debugger
-        setInterval(() => {
-          const antes = new Date().getTime();
-          debugger;
-          const despues = new Date().getTime();
-          if (despues - antes > 200) {
-            alert('Inspección detectada. Redirigiendo...');
-            window.location.href = 'https://tusitio.com/bloqueado';
-          }
-        }, 500);
-
 
       // Detectar teclas sospechosas (PC)
       document.addEventListener('keydown', (event) => {

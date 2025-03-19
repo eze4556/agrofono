@@ -19,17 +19,6 @@ export class AboutUsComponent implements OnInit{
                 window.location.href = 'https://tusitio.com/bloqueado';
               }
             }, 1000);
-
-                // Detectar uso de debugger
-                setInterval(() => {
-                  const antes = new Date().getTime();
-                  debugger;
-                  const despues = new Date().getTime();
-                  if (despues - antes > 200) {
-                    alert('Inspección detectada. Redirigiendo...');
-                    window.location.href = 'https://tusitio.com/bloqueado';
-                  }
-                }, 500);
   }
     // Navegar entre vistas
     navigateTo(route: string): void {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -13,7 +13,7 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.css']
 })
-export class LoginPage {
+export class LoginPage implements OnInit {
   loginForm: FormGroup;
   errorMessage: string = ''; // Para manejar errores
 
@@ -21,6 +21,15 @@ export class LoginPage {
     this.loginForm = this.fb.group({
       dni: ['', [Validators.required, Validators.minLength(7), Validators.maxLength(10)]]
     });
+  }
+  ngOnInit(): void {
+                // Detectar apertura de DevTools
+                setInterval(() => {
+                  if (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160) {
+                    alert('No intentes inspeccionar la página.');
+                    window.location.href = 'https://tusitio.com/bloqueado';
+                  }
+                }, 1000);
   }
 
   async onSubmit() {

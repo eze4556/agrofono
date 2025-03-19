@@ -32,17 +32,6 @@ export class MiSuscripcionComponent implements OnInit {
                   }
                 }, 1000);
 
-                    // Detectar uso de debugger
-                    setInterval(() => {
-                      const antes = new Date().getTime();
-                      debugger;
-                      const despues = new Date().getTime();
-                      if (despues - antes > 200) {
-                        alert('Inspección detectada. Redirigiendo...');
-                        window.location.href = 'https://tusitio.com/bloqueado';
-                      }
-                    }, 500);
-
     const currentUser = localStorage.getItem('currentUser');
     if (currentUser) {
       const userData = JSON.parse(currentUser);
