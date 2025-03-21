@@ -77,6 +77,13 @@ export class SuscripcionComponent implements OnInit {
         console.log('Respuesta del servidor:', response);
         this.successMessage = '¡Subscripción realizada con éxito!';
         this.isLoading = false;
+
+          // Redirigir al usuario al init_point
+        if (response?.init_point) {
+          window.location.href = response.init_point;
+        } else {
+          this.errorMessage = 'No se pudo obtener la URL de redirección.';
+        }
       },
       error: (error) => {
         console.error('Error al enviar la subscripción:', error);
