@@ -63,8 +63,9 @@ export class SuscripcionComponent implements OnInit {
       dni: this.formData.dni,
       nombre: this.formData.nombre,
       telefono: this.formData.telefono,
-      price: this.price,
+      price: parseFloat(this.price.replace('ARS ', '')), // Convertir a número
     };
+
 
     this.isLoading = true;
     this.successMessage = '';

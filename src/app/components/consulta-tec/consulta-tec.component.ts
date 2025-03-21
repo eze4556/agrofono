@@ -63,7 +63,7 @@ export class ConsultaTecComponent implements OnInit {
       nombre: this.formData.nombre,
       telefono: this.formData.telefono,
       dni: this.formData.dni,
-      price: this.price
+      price: parseFloat(this.price.replace('ARS ', '')), // Convertir a número
     };
 
     this.isLoading = true;
