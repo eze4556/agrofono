@@ -63,12 +63,12 @@ export class ComputadoraDetalleComponent {
       });
 
          // Detectar apertura de DevTools
-    setInterval(() => {
-      if (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160) {
-        alert('No intentes inspeccionar la página.');
-        window.location.href = 'https://tusitio.com/bloqueado';
-      }
-    }, 1000);
+    // setInterval(() => {
+    //   if (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160) {
+    //     alert('No intentes inspeccionar la página.');
+    //     window.location.href = 'https://tusitio.com/bloqueado';
+    //   }
+    // }, 1000);
 
 
       // Detectar teclas sospechosas (PC)

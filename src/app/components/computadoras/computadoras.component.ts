@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FirestoreService } from '../../services/firestore.service';
 import { Computadoras } from '../../models/computadora.model';
 import { CommonModule } from '@angular/common';
@@ -15,12 +15,18 @@ import { AuthService } from '../../services/auth.service';
 })
 export class ComputadorasComponent implements OnInit {
   computadoras: Computadoras[] = [];
-  filteredComputadoras: Computadoras[] = []; // Computadoras después del filtro
+  filteredComputadoras: Computadoras[] = [];
   selectedComputadora: Computadoras | null = null;
+  paginatedComputadoras: Computadoras[] = [];
+  currentPage: number = 0;
+  itemsPerPage: number = 15;
+  isMobileView: boolean = false;
 
-  constructor(private firestoreService: FirestoreService,
+  constructor(
+    private firestoreService: FirestoreService,
     private router: Router,
-  private authService: AuthService) {}
+    private authService: AuthService
+  ) {}
 
   async ngOnInit() {
     if (!this.authService.isLoggedIn) {
@@ -28,34 +34,44 @@ export class ComputadorasComponent implements OnInit {
     }
 
     this.computadoras = await this.firestoreService.getComputadoras();
-    // Inicialmente no mostramos ninguna computadora
-    this.filteredComputadoras = [];
-
-             // Detectar apertura de DevTools
-             setInterval(() => {
-              if (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160) {
-                alert('No intentes inspeccionar la página.');
-                window.location.href = 'https://tusitio.com/bloqueado';
-              }
-            }, 1000);
-
-
+    this.filteredComputadoras = this.computadoras;
+    this.updatePagination();
+    this.checkMobileView();
   }
 
-  // Filtrar computadoras por tipo
   filterComputadoras(tipo: string): void {
     this.filteredComputadoras = this.computadoras.filter(
       (computadora) => computadora.tipo_pc === tipo
     );
+    this.currentPage = 0;
+    this.updatePagination();
   }
 
-  // Seleccionar una computadora
+  updatePagination(): void {
+    const start = this.currentPage * this.itemsPerPage;
+    const end = start + this.itemsPerPage;
+    this.paginatedComputadoras = this.filteredComputadoras.slice(start, end);
+  }
+
+  goToPage(page: number): void {
+    this.currentPage = page;
+    this.updatePagination();
+  }
+
   selectComputadora(computadora: Computadoras): void {
-    this.router.navigate(['/computadoras', computadora.id]);
+    this.selectedComputadora = computadora;
+    console.log('Computadora seleccionada:', computadora);
   }
 
-  // Cerrar el detalle
-  closeDetalle(): void {
-    this.selectedComputadora = null;
+  @HostListener('window:resize', ['$event'])
+  checkMobileView(): void {
+    this.isMobileView = window.innerWidth <= 768;
+  }
+
+  get totalPages(): number[] {
+    return Array.from(
+      { length: Math.ceil(this.filteredComputadoras.length / this.itemsPerPage) },
+      (_, i) => i
+    );
   }
 }

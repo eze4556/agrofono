@@ -31,31 +31,34 @@ p {
 .buttons {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 50px;
 }
 
 .btn1 {
-  background: #2466ea;
+  background: linear-gradient(90deg, #2466ea, #3a8efc);
   color: white;
   border: none;
-  padding: 12px;
-  border-radius: 5px;
+  padding: 15px 25px;
+  border-radius: 10px;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 18px;
   cursor: pointer;
   width: 100%;
-  max-width: 450px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin: 10px auto;
-  transition: background 0.3s;
-  text-align: left;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
 .btn1:hover {
-  background: #1c4eb1;
+  background: linear-gradient(90deg, #1c4eb1, #306ee6);
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
+
 
 .btn-icon {
   min-width: 80px; /* Define un ancho mínimo para la imagen */

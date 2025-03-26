@@ -4,15 +4,15 @@
 
     <!-- Botones de filtro -->
     <div class="filter-buttons">
-      <button class="btn1" (click)="filterComputadoras('pulverisacion')">Pulverización</button>
-      <button class="btn1" (click)="filterComputadoras('siembra')">Siembra</button>
+      <button class="btn" (click)="filterComputadoras('arag')">Arag</button>
+      <button class="btn" (click)="filterComputadoras('otros')">Otros</button>
     </div>
 
-    <!-- Mostrar computadoras filtradas -->
-    <div class="buttons">
+    <!-- Mostrar computadoras filtradas en columnas -->
+    <div class="computadoras-grid">
       <div
-        *ngFor="let computadora of filteredComputadoras"
-        class="btn1"
+        *ngFor="let computadora of paginatedComputadoras"
+        class="computadora-card"
         (click)="selectComputadora(computadora)"
       >
         <div class="btn-icon">
@@ -23,6 +23,18 @@
         </div>
         <span>{{ computadora.nombre }}</span>
       </div>
+    </div>
+
+    <!-- Controles de paginación -->
+    <div class="pagination">
+      <button
+        *ngFor="let page of totalPages; let i = index"
+        class="btn1"
+        [class.active]="currentPage === i"
+        (click)="goToPage(i)"
+      >
+        {{ i + 1 }}
+      </button>
     </div>
   </div>
 </div>

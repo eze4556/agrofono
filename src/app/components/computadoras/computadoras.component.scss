@@ -9,7 +9,7 @@
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  max-width: 600px;
+  max-width: 1200px; /* Aumentar ancho máximo */
   margin: auto;
 }
 
@@ -22,13 +22,83 @@ h2 {
   margin-bottom: 20px;
 }
 
-.buttons {
+.filter-buttons {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 20px;
 }
 
-.btn1 {
+.computadoras-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas por defecto */
+  gap: 20px; /* Separación entre las tarjetas */
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  /* Cambiar a 1 columna en dispositivos móviles */
+  .computadoras-grid {
+    grid-template-columns: repeat(1, 1fr); /* 1 columna */
+    gap: 15px; /* Ajustar la separación */
+  }
+}
+
+.computadora-card {
+  background: #2466ea;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+    background: #1c4eb1;
+  }
+
+  .btn-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+
+    img {
+      width: 100px;
+      height: auto;
+      border-radius: 5px;
+    }
+  }
+
+  span {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  .btn1 {
+    margin: 0 5px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background: #2466ea;
+    color: white;
+    cursor: pointer;
+
+    &.active {
+      background: #1c4eb1;
+      font-weight: bold;
+    }
+  }
+}
+
+
+.btn {
   background: #2466ea;
   color: white;
   border: none;
@@ -49,28 +119,6 @@ h2 {
 }
 
 
-.btn1:hover {
+.btn:hover {
   background: #1c4eb1;
-}
-
-.btn-icon {
-  min-width: 80px;
-  display: flex;
-  justify-content: center;
-}
-
-img {
-  width: 130px;
-  height: auto;
-}
-
-span {
-  flex-grow: 1;
-  text-align: left;
-}
-.filter-buttons {
-  display: flex;
-  justify-content: center; /* Centrar los botones horizontalmente */
-  gap: 15px; /* Separación entre los botones */
-  margin-bottom: 20px; /* Espacio debajo de los botones */
 }
