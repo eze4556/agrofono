@@ -60,6 +60,22 @@ async getPrecios(): Promise<{ consultas: number; suscripciones: number; consulta
   }
 }
   // Usuario
+
+  async createFreeUser(user: Partial<UserI>): Promise<void> {
+    const userRef = collection(this.firestore, 'usuarios');
+
+    const newUser = {
+      nombre: (user.nombre || '').trim(),
+      dni: (user.dni || '').trim(),
+      telefono: Number(user.telefono),
+      email: (user.email || '').trim().toLowerCase(),
+      subscriptionId: 'gratuito',
+      active: false,
+    };
+
+    await addDoc(userRef, newUser);
+  }
+
   // Eliminar un usuario
   async deleteUser(user: UserI): Promise<void> {
   try {
@@ -195,24 +211,7 @@ async getComputadoraById(id: string): Promise<Computadoras | null> {
 
 
 
-  async getSubscripcionPorId(subscriptionId: string): Promise<any> {
-    try {
-      const subscripcionSnapshot = await getDocs(
-        query(
-          collection(this.firestore, 'subscriptions'),
-          where('subscriptionId', '==', subscriptionId)
-        )
-      );
-      if (!subscripcionSnapshot.empty) {
-        return subscripcionSnapshot.docs[0].data();
-      } else {
-        return null;
-      }
-    } catch (error) {
-      console.error('Error obteniendo la suscripción:', error);
-      throw error;
-    }
-  }
+
 
   async getConsultas(): Promise<ConsultaI[]> {
     const consultasSnapshot = await getDocs(collection(this.firestore, 'consultas'));

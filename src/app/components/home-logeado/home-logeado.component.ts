@@ -15,12 +15,7 @@ export class HomeLogeadoComponent implements OnInit {
   constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
-    if (!this.authService.isLoggedIn) {
-      this.router.navigate(['/home']);
-    } else {
-      this.userName = this.authService.userName; // Obtener el nombre del usuario
-    }
-
+    this.userName = this.authService.userName;
   }
 
   navigateTo(route: string): void {

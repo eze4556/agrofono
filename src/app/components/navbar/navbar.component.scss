@@ -8,12 +8,14 @@ $mobile-bg: lighten($primary-bg, 5%);
 .navbar {
   background-color: $primary-bg;
   color: $secondary-text;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 1.25rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 
   .navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    min-height: 56px;
 
     @media (max-width: 480px) {
       flex-direction: row; // Mantener la dirección horizontal
@@ -26,11 +28,11 @@ $mobile-bg: lighten($primary-bg, 5%);
     align-items: center;
 
     .navbar-image {
-      height: 35px;
+      height: 38px;
       width: auto;
 
       @media (max-width: 480px) {
-        height: 30px;
+        height: 32px;
       }
     }
   }
@@ -41,22 +43,47 @@ $mobile-bg: lighten($primary-bg, 5%);
     @media (min-width: 768px) {
       display: flex;
       gap: 1rem;
+      align-items: center;
     }
 
     .navbar-link {
       color: $secondary-text;
       text-decoration: none;
       font-size: 1rem;
-      transition: color 0.3s ease;
+      padding: 0.5rem 0.6rem;
+      border-radius: 10px;
+      transition: color 0.25s ease, background-color 0.25s ease;
 
       &:hover {
         color: $hover-text;
+        background-color: rgba(237, 220, 135, 0.08);
       }
 
       @media (max-width: 480px) {
         font-size: 0.875rem;
       }
     }
+  }
+
+  .navbar-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.55rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(237, 220, 135, 0.35);
+    background: rgba(237, 220, 135, 0.08);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+
+    &:hover {
+      background: rgba(237, 220, 135, 0.14);
+      border-color: rgba(237, 220, 135, 0.55);
+    }
+  }
+
+  .navbar-cta-icon {
+    display: inline-flex;
+    color: $secondary-text;
   }
 
   .navbar-toggle {
@@ -112,6 +139,16 @@ $mobile-bg: lighten($primary-bg, 5%);
         @media (max-width: 480px) {
           font-size: 0.875rem;
         }
+      }
+
+      .navbar-mobile-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.65rem 0.85rem;
+        border-radius: 12px;
+        border: 1px solid rgba(237, 220, 135, 0.3);
+        background: rgba(237, 220, 135, 0.08);
       }
     }
   }

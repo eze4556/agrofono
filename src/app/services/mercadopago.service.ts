@@ -17,12 +17,6 @@ export class MercadoPagoService {
     return this.http.post(url, paymentData);
   }
 
-    // Método para enviar la orden de pago al servidor backend
-  sendSubPaymentData(paymentData: any): Observable<any> {
-    const url = `${this.apiUrl}/create_subscription`;
-    return this.http.post(url, paymentData);
-  }
-
 }
 
 

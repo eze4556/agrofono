@@ -14,16 +14,15 @@ export class ServicesComponent implements OnInit {
   ngOnInit(): void {
 
   }
-    // Navegar entre vistas
-    navigateTo(route: string): void {
-      this.router.navigate([`/${route}`]);
-    }
 
+  navigateTo(route: string): void {
+    this.router.navigate([`/${route}`]);
+  }
 
-    shareFurnitureLink(): void {
-      const numeroWhatsApp = "5493546570859";
-      const mensaje = `Hola, me gustaría obtener más información. ¿Podría ayudarme, por favor?`;
-      const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-      window.open(url, "_blank");
+  shareFurnitureLink(): void {
+    const numeroWhatsApp = '5493546570859';
+    const mensaje = `Hola, me gustaría obtener más información. ¿Podría ayudarme, por favor?`;
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, '_blank');
   }
 }

@@ -1,64 +1,169 @@
-// Hero Section Styles
-.hero-section {
+:host {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: url('../../../assets/el-campo-una-vision-de-futuro_wide.webp') center / cover no-repeat;
-  color: white;
-  padding: 1.5rem;
+  flex: 1;
 }
 
+/* HERO */
+.hero {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: url('../../../assets/el-campo-una-vision-de-futuro_wide.webp')
+    center / cover no-repeat;
+  padding: clamp(40px, 6vw, 80px) 24px;
+  color: white;
+  overflow: hidden;
+}
 
-.hero-content {
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  max-width: 24rem;
-  text-align: center;
+/* overlay oscuro */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* CONTENEDOR PRINCIPAL */
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: clamp(280px, 30%, 420px) 1fr;
+  gap: clamp(24px, 4vw, 60px);
+  align-items: center;
+}
+
+/* COLUMNA IZQUIERDA */
+.hero-left {
+  display: flex;
+}
+
+.hero-left-content {
+  width: 100%;
+  padding: 40px;
+  border-radius: 16px;
+  background: rgba(29, 78, 216, 0.18);
+  border: 1px solid rgba(36, 102, 234, 0.5);
+  backdrop-filter: blur(10px);
 }
 
 .hero-title {
-  font-size: 1.5rem;
-  font-weight: bold;
+  margin: 0;
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  font-weight: 900;
+  line-height: 1.1;
   background: linear-gradient(to right, #EDDC87, #AC722D);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .hero-description {
-  margin-top: 0.5rem;
-  font-size: 0.875rem;
+  margin: 1.2rem 0 1.8rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.hero-buttons {
-  margin-top: 1rem;
-  margin-bottom: 10px;
+.hero-cta {
+  padding: 14px 26px;
+  font-size: 16px;
+  font-weight: 800;
+  background-color: #2466ea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.hero-cta:hover {
+  background-color: #1c4eb1;
+  transform: translateY(-2px);
+}
+
+/* COLUMNA DERECHA */
+.hero-right {
   width: 100%;
-  .hero-button {
-    width: 100%;
-    margin-bottom: 10px;
-    background-color: #1D4ED8;
-    color: white;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s;
-
-    &:hover {
-      background-color: #1E40AF;
-    }
-
-    .button-icon {
-      margin-left: 0.5rem;
-    }
-  }
 }
 
-@mixin flex-center {
+/* GRID DE CARDS */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+/* CARD */
+.service-card {
+  padding: 26px;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  gap: 14px;
+
+  min-height: 380px;
+  transition: 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.service-card-highlight {
+  border-color: rgba(36, 102, 234, 0.5);
+  background: rgba(29, 78, 216, 0.18);
+}
+
+.service-card-title {
+  font-size: 17px;
+  font-weight: 900;
+  line-height: 1.3;
+}
+
+.service-bullets li {
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.service-note {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+.service-btn {
+  margin-top: auto;
+  background: #2466ea;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 800;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.2s ease;
+}
+
+.service-btn:hover {
+  background: #1c4eb1;
+}
+
+/* RESPONSIVE REAL */
+@media (max-width: 992px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-cta {
+    width: 100%;
+  }
 }

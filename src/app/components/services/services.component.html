@@ -1,39 +1,45 @@
+<section class="services-section" aria-label="Nuestros servicios">
+  <div class="services-container">
+    <h2 class="services-title">Nuestros servicios</h2>
 
-<div class="div1">
-<div class="servicios-container">
-  <h2>Nuestros servicios</h2>
+    <div class="services-grid">
+      <article class="service-card">
+        <h3 class="service-card-title">◆ Asistencia Técnica para Propietarios de tecnología ARAG</h3>
+        <ul class="service-bullets">
+          <li>✅ Diagnóstico rápido y preciso de fallas en computadoras de pulverización y sistemas de mapeo.</li>
+          <li>✅ Soporte directo con un especialista vía WhatsApp.</li>
+          <li>✅ Asistencia técnica para optimizar el funcionamiento de tus equipos.</li>
+        </ul>
+        <p class="service-note">Solicite su consulta y reciba atención personalizada.</p>
+        <button type="button" class="service-btn" (click)="navigateTo('consulta')">Empezar Ahora ➤</button>
+      </article>
 
-  <div class="servicio">
-    <h3>🔹 Asistencia Técnica para Propietarios de tecnología ARAG</h3>
-    <ul>
-      <li>✅ Diagnóstico rápido y preciso de fallas en computadoras de pulverización, mapeo y siembra.</li>
-      <li>✅ Soporte directo con un especialista vía WhatsApp.</li>
-      <li>✅ Solución eficiente para reducir el tiempo de inactividad.</li>
-    </ul>
-    <p>Solicite su consulta y reciba atención personalizada.</p>
-    <button class="btn" (click)="navigateTo('asesoria')">Empezar Ahora ➤</button>
+      <article class="service-card service-card-highlight">
+        <h3 class="service-card-title">
+          ◆ Recursos Exclusivos para Técnicos — <span class="badge-free">Gratuito</span>
+        </h3>
+        <ul class="service-bullets">
+          <li>✔ Acceso ilimitado a documentación técnica</li>
+          <li>✔ Manuales y versiones actualizadas</li>
+          <li>✔ Videos explicativos</li>
+          <li>✔ Soporte profesional especializado</li>
+          <li>✔ Herramienta que simplifica tu trabajo</li>
+          <li>✔ Reducí tiempos de respuesta a tus clientes</li>
+        </ul>
+        <p class="service-note">Acceso completo con solo iniciar sesión. Sin costo.</p>
+        <button type="button" class="service-btn" (click)="navigateTo('login')">Iniciar Sesión ➤</button>
+      </article>
+
+      <article class="service-card">
+        <h3 class="service-card-title">◆ ¿Por qué elegir Agrofono?</h3>
+        <ul class="service-bullets">
+          <li>✅ Experiencia comprobada con años de asistencia técnica agrícola.</li>
+          <li>✅ Documentación ordenada y fácil de encontrar.</li>
+          <li>✅ Soporte confiable, atención personalizada con especialistas del sector.</li>
+        </ul>
+        <p class="service-note">El campo no se detiene, su tecnología tampoco debería hacerlo.</p>
+        <button type="button" class="service-btn" (click)="shareFurnitureLink()">Consultar por WhatsApp</button>
+      </article>
+    </div>
   </div>
-
-  <div class="servicio">
-    <h3>🔹 Recursos Exclusivos para Técnicos</h3>
-    <ul>
-      <li>✅ Acceso a tutoriales, documentación, planos y softwares.</li>
-      <li>✅ Capacitación continua para mejorar su desempeño.</li>
-      <li>✅ Suscripción mensual con consulta técnica y tarifa preferencial.</li>
-    </ul>
-    <p>Mantente al día con nuevas tecnologías y metodologías en maquinaria agrícola.</p>
-    <button class="btn" (click)="navigateTo('suscripcionesTecnicas')">Suscribirme</button>
-  </div>
-
-   <div class="servicio">
-    <h3>🔹 Por que elegir agrofono?</h3>
-    <ul>
-      <li>✅ Experiencia comprobada con años de asistencia técnica agrícola.</li>
-      <li>✅ Soluciones eficientes, diagnósticos y capacitaciones basadas en tecnología de vanguardia.</li>
-      <li>✅ Soporte confiable, atención personalizada con especialistas del sector</li>
-    </ul>
-    <p>El campo no se detiene, su tecnología tampoco debería hacerlo.</p>
-    <button  (click)="shareFurnitureLink()" class="btn">Consultar por Whatsapp</button>
-  </div>
-</div>
-</div>
+</section>

@@ -106,3 +106,88 @@
     }
   }
 }
+
+.btn-secondary {
+  margin-top: 10px;
+  width: 100%;
+  background: transparent;
+  color: #EDDC87;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #EDDC87;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+
+  &:hover {
+    background: #EDDC87;
+    color: #061A38;
+    border-color: #EDDC87;
+  }
+}
+
+.btn-login.full-width {
+  width: 100%;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.modal-container {
+  width: 100%;
+  max-width: 480px;
+  background: linear-gradient(to bottom, #101010, #061A38);
+  border-radius: 12px;
+  padding: 20px;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #EDDC87;
+    margin: 0;
+  }
+}
+
+.close-button {
+  background: transparent;
+  border: none;
+  color: #EDDC87;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.modal-text {
+  font-size: 14px;
+  color: #f0f0f0;
+  margin-bottom: 15px;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.info-message {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #EDDC87;
+}

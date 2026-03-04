@@ -1,12 +1,9 @@
 import { Routes } from "@angular/router";
-import { AsesoriaComponent } from "./components/asesoria/asesoria.component";
 import { HomeComponent } from "./components/home/home.component";
 import { provideRouter, RouterModule } from "@angular/router";
-import { SuscripcionesTecnicasComponent } from "./components/suscripciones-tecnicas/suscripciones-tecnicas.component";
 import { AboutUsComponent } from "./components/about-us/about-us.component";
 import { LoginPage } from "./pages/login/login.page";
 import { ProfileComponent } from "./components/profile/profile.component";
-import { SuscripcionComponent } from "./components/suscripcion/suscripcion.component";
 import { ConsultasComponent } from "./components/consultas/consultas.component";
 import { HomeLogeadoComponent } from "./components/home-logeado/home-logeado.component";
 import { ConsultasTecnicosComponent } from "./components/consultas-tecnicos/consultas-tecnicos.component";
@@ -14,27 +11,32 @@ import { ComputadorasComponent } from "./components/computadoras/computadoras.co
 import { ComputadoraDetalleComponent } from "./components/computadora-detalle/computadora-detalle.component";
 import { ConsultaTecComponent } from "./components/consulta-tec/consulta-tec.component";
 import { MisConsultasComponent } from "./components/mis-consultas/mis-consultas.component";
-import { MiSuscripcionComponent } from "./components/mi-suscripcion/mi-suscripcion.component";
-
-
-
+import { AuthGuard } from "./guards/auth.guard";
 
 export const routes: Routes = [
+  // Rutas públicas
   { path: "home", component: HomeComponent },
-  { path: "asesoria", component: AsesoriaComponent },
-  { path: "suscripcionesTecnicas", component: SuscripcionesTecnicasComponent },
   { path: "nosotros", component: AboutUsComponent },
   { path: "login", component: LoginPage },
-  { path: "profile", component: ProfileComponent },
-  { path: "suscripcion", component: SuscripcionComponent },
-  { path: "consulta", component: ConsultasComponent },
-  { path: "consulta-tec", component: ConsultaTecComponent },
-  { path: "mis-consultas", component: MisConsultasComponent },
-  { path: "mi-suscripcion", component: MiSuscripcionComponent },
-  { path: "home-tecnico", component: HomeLogeadoComponent },
-  { path: "consulta-tecnico", component: ConsultasTecnicosComponent },
-  { path: "computadoras", component: ComputadorasComponent },
-  { path: "computadoras/:id", component: ComputadoraDetalleComponent }, // Nueva ruta
+  // { path: "consulta", component: ConsultasComponent },
+
+  // Rutas protegidas — requieren login
+  { path: "home-tecnico", component: HomeLogeadoComponent, canActivate: [AuthGuard] },
+  { path: "profile", component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: "consulta-tec", component: ConsultaTecComponent, canActivate: [AuthGuard] },
+  { path: "mis-consultas", component: MisConsultasComponent, canActivate: [AuthGuard] },
+  { path: "consulta-tecnico", component: ConsultasTecnicosComponent, canActivate: [AuthGuard] },
+  { path: "computadoras", component: ComputadorasComponent, canActivate: [AuthGuard] },
+  { path: "computadoras/:id", component: ComputadoraDetalleComponent, canActivate: [AuthGuard] },
+
+  // Redirects temporales — rutas de suscripción eliminadas (evitan 404)
+  { path: "suscripcionesTecnicas", redirectTo: "", pathMatch: "full" },
+  { path: "suscripcion", redirectTo: "", pathMatch: "full" },
+  { path: "mi-suscripcion", redirectTo: "", pathMatch: "full" },
+
+  // Ruta por defecto y wildcard
   { path: "", redirectTo: "home", pathMatch: "full" },
+  { path: "**", redirectTo: "home" },
 ];
+
 export const AppRoutingModule = RouterModule.forRoot(routes);

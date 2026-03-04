@@ -60,8 +60,11 @@ export class ComputadorasComponent implements OnInit {
 
   selectComputadora(computadora: Computadoras): void {
     this.selectedComputadora = computadora;
+    this.router.navigate(['/computadoras', computadora.id]);
     console.log('Computadora seleccionada:', computadora);
   }
+
+
 
   @HostListener('window:resize', ['$event'])
   checkMobileView(): void {

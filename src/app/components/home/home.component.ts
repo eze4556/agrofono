@@ -6,7 +6,9 @@ import { ServicesComponent } from "../services/services.component";
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeroSectionComponent, TextoComponent, ServicesComponent],
+  imports: [HeroSectionComponent,
+    // TextoComponent, ServicesComponent
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

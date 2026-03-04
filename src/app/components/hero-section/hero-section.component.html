@@ -1,18 +1,107 @@
-<section class="hero-section">
-  <div class="hero-content">
-    <h1 class="hero-title">
-      Maximizamos la eficiencia de tu tecnología agrícola
-    </h1>
-    <p class="hero-description">
-      Optimice su producción con asistencia técnica y formación especializada
-    </p>
-    <div class="hero-buttons">
-      <button class="hero-button" (click)="navigateTo('asesoria')">
-        Consultoría Técnica <span class="button-icon">🛈</span>
-      </button>
-      <button class="hero-button" (click)="navigateTo('suscripcionesTecnicas')">
-        Subscripción Técnica
-      </button>
+<section class="hero">
+
+  <div class="hero-inner">
+
+    <!-- COLUMNA IZQUIERDA -->
+    <div class="hero-left">
+      <div class="hero-left-content">
+        <h1 class="hero-title">
+          Acceso técnico ilimitado y gratuito
+        </h1>
+
+        <p class="hero-description">
+          Planos, manuales, versiones de software y asistencia profesional en un solo lugar.
+        </p>
+
+        <button type="button" class="hero-cta" (click)="goToFreeRegister()">
+          Crear cuenta gratuita <span class="button-icon">→</span>
+        </button>
+      </div>
     </div>
+
+    <!-- COLUMNA DERECHA (SERVICIOS SOBRE IMAGEN) -->
+    <div class="hero-right">
+
+      <div class="hero-services-wrapper">
+
+        <div class="services-grid">
+
+          <!-- CARD 1 -->
+          <article class="service-card">
+            <h3 class="service-card-title">
+              ◆ Asistencia Técnica para Propietarios de tecnología ARAG
+            </h3>
+
+            <ul class="service-bullets">
+              <li>✅ Diagnóstico rápido y preciso de fallas en computadoras de pulverización y sistemas de mapeo.</li>
+              <li>✅ Soporte directo con un especialista vía WhatsApp.</li>
+              <li>✅ Asistencia técnica para optimizar el funcionamiento de tus equipos.</li>
+            </ul>
+
+            <p class="service-note">
+              Solicite su consulta y reciba atención personalizada.
+            </p>
+
+            <button type="button" class="service-btn"
+              (click)="navigateTo('login')">
+              Empezar Ahora ➤
+            </button>
+          </article>
+
+          <!-- CARD 2 DESTACADA -->
+          <article class="service-card service-card-highlight">
+            <h3 class="service-card-title">
+              ◆ Recursos Exclusivos para Técnicos —
+              <span class="badge-free">Gratuito</span>
+            </h3>
+
+            <ul class="service-bullets">
+              <li>✔ Acceso ilimitado a documentación técnica</li>
+              <li>✔ Manuales y versiones actualizadas</li>
+              <li>✔ Videos explicativos</li>
+              <li>✔ Soporte profesional especializado</li>
+              <li>✔ Herramienta que simplifica tu trabajo</li>
+              <li>✔ Reducí tiempos de respuesta a tus clientes</li>
+            </ul>
+
+            <p class="service-note">
+              Acceso completo con solo iniciar sesión. Sin costo.
+            </p>
+
+            <button type="button" class="service-btn"
+              (click)="navigateTo('login')">
+              Iniciar Sesión ➤
+            </button>
+          </article>
+
+          <!-- CARD 3 -->
+          <article class="service-card">
+            <h3 class="service-card-title">
+              ◆ ¿Por qué elegir Agrofono?
+            </h3>
+
+            <ul class="service-bullets">
+              <li>✅ Experiencia comprobada con años de asistencia técnica agrícola.</li>
+              <li>✅ Documentación ordenada y fácil de encontrar.</li>
+              <li>✅ Soporte confiable, atención personalizada con especialistas del sector.</li>
+            </ul>
+
+            <p class="service-note">
+              El campo no se detiene, su tecnología tampoco debería hacerlo.
+            </p>
+
+            <button type="button" class="service-btn"
+              (click)="shareFurnitureLink()">
+              Consultar por WhatsApp
+            </button>
+          </article>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
+
 </section>

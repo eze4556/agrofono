@@ -1,7 +1,7 @@
 <nav class="navbar">
   <div class="navbar-container">
     <!-- Logo -->
-    <a href="#" class="navbar-logo">
+    <a [routerLink]="['/home']" class="navbar-logo">
       <img src="../../../assets/f0b30aad-6efd-4bbc-9910-595716cb1ef1-removebg-preview.png" alt="Logo" class="navbar-image">
     </a>
 
@@ -9,11 +9,19 @@
     <ul class="navbar-menu">
       <!-- Opciones para usuarios no logueados -->
       <ng-container *ngIf="!isLoggedIn; else loggedInMenu">
-        <li><a href="#" class="navbar-link">Home</a></li>
-        <li><a [routerLink]="['/asesoria']" class="navbar-link">Asesoría al Cliente</a></li>
-        <li><a [routerLink]="['/suscripcionesTecnicas']" class="navbar-link">Suscripciones Técnicas</a></li>
+        <li><a [routerLink]="['/home']" class="navbar-link">Inicio</a></li>
         <li><a [routerLink]="['/nosotros']" class="navbar-link">Sobre Nosotros</a></li>
-        <li><a [routerLink]="['/login']" class="navbar-link">Iniciar Sesión Técnico</a></li>
+        <li>
+          <a [routerLink]="['/login']" class="navbar-link navbar-cta">
+            <span class="navbar-cta-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.505 4.505 0 0 0 12 12Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M4 20c1.7-4 14.3-4 16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            Iniciar sesión
+          </a>
+        </li>
       </ng-container>
 
       <!-- Opciones para usuarios logueados -->
@@ -35,11 +43,19 @@
   <div *ngIf="isMenuOpen" class="navbar-mobile">
     <ul class="navbar-mobile-menu">
       <ng-container *ngIf="!isLoggedIn; else loggedInMobileMenu">
-        <li><a href="#" class="navbar-mobile-link">Inicio</a></li>
-        <li><a [routerLink]="['/asesoria']" class="navbar-mobile-link">Asesoría al Cliente</a></li>
-        <li><a [routerLink]="['/suscripcionesTecnicas']" class="navbar-mobile-link">Suscripciones Técnicas</a></li>
+        <li><a [routerLink]="['/home']" class="navbar-mobile-link">Inicio</a></li>
         <li><a [routerLink]="['/nosotros']" class="navbar-mobile-link">Sobre Nosotros</a></li>
-        <li><a [routerLink]="['/login']" class="navbar-mobile-link">Iniciar Sesión Técnico</a></li>
+        <li>
+          <a [routerLink]="['/login']" class="navbar-mobile-link navbar-mobile-cta">
+            <span class="navbar-cta-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.505 4.505 0 0 0 12 12Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M4 20c1.7-4 14.3-4 16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            Iniciar sesión
+          </a>
+        </li>
       </ng-container>
       <ng-template #loggedInMobileMenu>
         <li><a [routerLink]="['/home-tecnico']" class="navbar-mobile-link">Inicio</a></li>

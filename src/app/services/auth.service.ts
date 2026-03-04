@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private loggedIn = new BehaviorSubject<boolean>(this.hasCurrentUser());
+  private loggedIn = new BehaviorSubject<boolean>(!!localStorage.getItem('currentUser'));
   isLoggedIn$ = this.loggedIn.asObservable();
 
   // Verificar si hay un usuario en localStorage

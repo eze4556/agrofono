@@ -1,8 +1,9 @@
 export interface UserI {
-  id:string;
-  subscriptionId: string;
-  nombre:string;
-  dni:string;
-  active:boolean;
-  telefono:number;
+  id: string;
+  nombre: string;
+  dni: string;
+  active: boolean;
+  telefono: number;
+  email?: string;
+  subscriptionId?: string;
 }
