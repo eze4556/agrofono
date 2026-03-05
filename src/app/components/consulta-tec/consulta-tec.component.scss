@@ -102,3 +102,107 @@ h2 {
   font-weight: bold;
   color: #eddd87; /* Color dorado para el precio */
 }
+
+.info-box {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(237, 221, 135, 0.4);
+  padding: 18px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.info-title {
+  font-weight: bold;
+  color: #eddd87;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.info-subtitle {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #eddd87;
+}
+
+.machine-list {
+  columns: 2;
+  margin: 10px 0;
+  padding-left: 18px;
+
+  li {
+    margin-bottom: 4px;
+  }
+}
+
+.info-warning {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #f3c66a;
+}
+
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.toggle-btn {
+  background: transparent;
+  border: 1px solid #eddd87;
+  color: #eddd87;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.25s ease;
+}
+
+.toggle-btn:hover {
+  background: rgba(237,221,135,0.15);
+}
+
+.expand-content {
+  margin-top: 10px;
+}
+
+.info-buttons {
+  margin-top: 10px;
+}
+
+.info-buttons .btn1 {
+  max-width: 200px;
+  background: #25d366; /* color tipo WhatsApp */
+}
+
+.info-buttons .btn1:hover {
+  background: #1ebe5d;
+}
+
+.compatibility-check {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #eddd87;
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+  }
+
+  input {
+    width: auto;
+    transform: scale(1.2);
+  }
+}
+
+.compatibility-warning {
+  font-size: 13px;
+  color: #f3c66a;
+  margin-top: 6px;
+  text-align: center;
+}

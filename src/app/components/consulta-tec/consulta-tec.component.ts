@@ -18,11 +18,12 @@ export class ConsultaTecComponent implements OnInit {
     telefono: '',
     dni: ''
   };
-
+  confirmCompatibility: boolean = false;
   price: string = 'Cargando...'; // Mostramos un mensaje temporal mientras obtenemos el precio
   isLoading: boolean = false; // Indicador de carga
   successMessage: string = ''; // Mensaje de éxito
   errorMessage: string = ''; // Mensaje de error
+  showInfo: boolean = false;
 
   constructor(
     private mercadoPagoService: MercadoPagoService,
@@ -33,6 +34,10 @@ export class ConsultaTecComponent implements OnInit {
     this.loadPrice();
   }
 
+
+  toggleInfo(): void {
+    this.showInfo = !this.showInfo;
+  }
   // Método para cargar el precio de las consultas
   async loadPrice() {
     try {
@@ -50,25 +55,31 @@ export class ConsultaTecComponent implements OnInit {
   }
 
   onSubmit() {
+
+    if (!this.confirmCompatibility) {
+      this.errorMessage = 'Debes confirmar que tu equipo es compatible antes de pagar.';
+      return;
+    }
+
     const paymentData = {
       email: this.formData.email,
       nombre: this.formData.nombre,
       telefono: this.formData.telefono,
       dni: this.formData.dni,
-      price: parseFloat(this.price.replace('ARS ', '')), // Convertir a número
+      price: parseFloat(this.price.replace('ARS ', '')),
     };
 
     this.isLoading = true;
     this.successMessage = '';
     this.errorMessage = '';
 
-    // Llamar al método del servicio
     this.mercadoPagoService.sendPaymentData(paymentData).subscribe({
       next: (response) => {
         console.log('Respuesta del servidor:', response);
+
         this.successMessage = '¡Consulta procesada exitosamente!';
         this.isLoading = false;
-         // Redirigir al usuario al init_point
+
         if (response?.init_point) {
           window.location.href = response.init_point;
         } else {
@@ -82,4 +93,12 @@ export class ConsultaTecComponent implements OnInit {
       }
     });
   }
+
+  shareFurnitureLink(): void {
+    const numeroWhatsApp = "5493546570859";
+    const mensaje = `Hola, soy un técnico suscripto. ¿Podría ayudarme, por favor?`;
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, "_blank");
 }
+}
+

@@ -1,7 +1,69 @@
 <div class="div1">
   <div class="servicios-container">
     <h2>Consulta Técnico</h2>
+
+    <div class="info-box">
+
+      <p class="info-title">Recordatorio importante</p>
+
+      <p>
+        Este servicio de consulta técnica está destinado exclusivamente para
+        equipos compatibles con nuestros sistemas.
+      </p>
+
+      <!-- BOTON VER MAS -->
+      <div class="toggle-container">
+        <button type="button" class="toggle-btn" (click)="toggleInfo()">
+          {{ showInfo ? 'Ocultar información' : 'Ver equipos compatibles' }}
+        </button>
+      </div>
+
+      <!-- CONTENIDO DESPLEGABLE -->
+      <div *ngIf="showInfo" class="expand-content">
+
+        <p class="info-subtitle">
+          Modelos de máquinas con los que trabajamos:
+        </p>
+
+        <ul class="machine-list">
+          <li>Bravo 180</li>
+          <li>Bravo 180s</li>
+          <li>Bravo 300</li>
+          <li>Bravo 300s</li>
+          <li>Bravo 300s RCU</li>
+          <li>Bravo 350</li>
+          <li>Bravo 400</li>
+          <li>Bravo 400s</li>
+          <li>Bravo 400s LT</li>
+          <li>Bravo 400s RCU</li>
+          <li>Bravo 400s IBX</li>
+          <li>Delta 80</li>
+          <li>Skipper</li>
+          <li>Navigator LT</li>
+          <li>Alfa 310</li>
+          <li>Alfa 310s</li>
+        </ul>
+
+        <p class="info-warning">
+          ⚠️ Si su equipo no se encuentra en esta lista o tiene dudas sobre el
+          modelo, le recomendamos comunicarse previamente con mesa de entrada
+          indicando el modelo de su computadora. De esta manera podremos
+          confirmar si la consulta técnica es aplicable y evitar pagos
+          innecesarios.
+        </p>
+
+        <!-- BOTON MESA DE ENTRADA -->
+        <div class="buttons info-buttons">
+          <button (click)="shareFurnitureLink()" class="btn1">
+            Mesa de entrada
+          </button>
+        </div>
+
+      </div>
+
+    </div>
     <form (ngSubmit)="onSubmit()" #consultaForm="ngForm">
+
       <div class="form-group">
         <label for="email">Correo Electrónico</label>
         <input
@@ -55,17 +117,43 @@
         <p class="price">{{ price }}</p>
       </div>
 
+      <!-- CONFIRMACION DE COMPATIBILIDAD -->
+
+      <div class="compatibility-check">
+        <label>
+          <input
+            type="checkbox"
+            name="confirmCompatibility"
+            [(ngModel)]="confirmCompatibility"
+            required
+          />
+          Confirmo que mi equipo pertenece a uno de los modelos compatibles
+        </label>
+      </div>
+
+      <!-- MENSAJE VISUAL -->
+      <div *ngIf="!confirmCompatibility" class="compatibility-warning">
+        Debes confirmar que tu equipo pertenece a un modelo compatible para continuar con el pago.
+      </div>
+
       <div class="buttons">
         <button
           type="submit"
           class="btn1 mercado-pago"
-          [disabled]="!consultaForm.valid || isLoading"
+          [disabled]="!consultaForm.valid || isLoading || !confirmCompatibility"
         >
-          <ng-container *ngIf="!isLoading">Pagar con Mercado Pago</ng-container>
-          <ng-container *ngIf="isLoading">Procesando...</ng-container>
+          <ng-container *ngIf="!isLoading">
+            Pagar con Mercado Pago
+          </ng-container>
+
+          <ng-container *ngIf="isLoading">
+            Procesando...
+          </ng-container>
+
           <img src="assets/mpLogo.png" alt="Mercado Pago" />
         </button>
       </div>
+
     </form>
 
     <!-- Mensajes de retroalimentación -->
